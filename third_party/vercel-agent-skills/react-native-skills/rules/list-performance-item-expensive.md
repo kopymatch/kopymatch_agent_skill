@@ -7,27 +7,25 @@ tags: lists, performance, virtualization, hooks
 
 ## Keep List Items Lightweight
 
-List items should be as inexpensive as possible to render. Minimize hooks, avoid
-queries, and limit React Context access. Virtualized lists render many items
-during scroll—expensive items cause jank.
+List items should be as inexpensive as possible to render. Minimize hooks, avoid queries, and limit React Context access. Virtualized lists render many items during scroll—expensive items cause jank.
 
 **Incorrect (heavy list item):**
 
 ```tsx
 function ProductRow({ id }: { id: string }) {
   // Bad: query inside list item
-  const { data: product } = useQuery(['product', id], () => fetchProduct(id))
+  const { data: product } = useQuery(["product", id], () => fetchProduct(id));
   // Bad: multiple context accesses
-  const theme = useContext(ThemeContext)
-  const user = useContext(UserContext)
-  const cart = useContext(CartContext)
+  const theme = useContext(ThemeContext);
+  const user = useContext(UserContext);
+  const cart = useContext(CartContext);
   // Bad: expensive computation
   const recommendations = useMemo(
     () => computeRecommendations(product),
-    [product]
-  )
+    [product],
+  );
 
-  return <View>{/* ... */}</View>
+  return <View>{/* ... */}</View>;
 }
 ```
 
@@ -42,7 +40,7 @@ function ProductRow({ name, price, imageUrl }: Props) {
       <Text>{name}</Text>
       <Text>{price}</Text>
     </View>
-  )
+  );
 }
 ```
 
@@ -51,7 +49,7 @@ function ProductRow({ name, price, imageUrl }: Props) {
 ```tsx
 // Parent fetches all data once
 function ProductList() {
-  const { data: products } = useQuery(['products'], fetchProducts)
+  const { data: products } = useQuery(["products"], fetchProducts);
 
   return (
     <LegendList
@@ -60,7 +58,7 @@ function ProductList() {
         <ProductRow name={item.name} price={item.price} imageUrl={item.image} />
       )}
     />
-  )
+  );
 }
 ```
 
@@ -69,15 +67,15 @@ function ProductList() {
 ```tsx
 // Incorrect: Context causes re-render when any cart value changes
 function ProductRow({ id, name }: Props) {
-  const { items } = useContext(CartContext)
-  const inCart = items.includes(id)
+  const { items } = useContext(CartContext);
+  const inCart = items.includes(id);
   // ...
 }
 
 // Correct: Zustand selector only re-renders when this specific value changes
 function ProductRow({ id, name }: Props) {
   // use Set.has (created once at the root) instead of Array.includes()
-  const inCart = useCartStore((s) => s.items.has(id))
+  const inCart = useCartStore((s) => s.items.has(id));
   // ...
 }
 ```
@@ -90,5 +88,4 @@ function ProductRow({ id, name }: Props) {
 - Minimize useState/useEffect hooks
 - Pass pre-computed values as props
 
-The goal: list items should be simple rendering functions that take props and
-return JSX.
+The goal: list items should be simple rendering functions that take props and return JSX.

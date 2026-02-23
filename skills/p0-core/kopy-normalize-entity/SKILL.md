@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | raw_entity | object | Có | Entity thô từ crawl output |
 | source_provider | string | Có | "binance", "okx", "telegram", "web", ... |
 | entity_type | enum | Có | "exchange", "trader", "signal_group", "website", "person" |
@@ -41,9 +41,9 @@ metadata:
     "display_name": "CryptoMaster_VN",
     "normalized_name": "cryptomaster_vn",
     "identifiers": [
-      {"type": "platform_uid", "value": "BNC-12345678"},
-      {"type": "telegram", "value": "@cryptomaster_vn"},
-      {"type": "website", "value": "https://cryptomaster-vn.com"}
+      { "type": "platform_uid", "value": "BNC-12345678" },
+      { "type": "telegram", "value": "@cryptomaster_vn" },
+      { "type": "website", "value": "https://cryptomaster-vn.com" }
     ],
     "attributes": {
       "followers_count": 15000,
@@ -91,12 +91,12 @@ metadata:
 
 ### Provider-specific Mappings
 
-| Provider | ROI field | Followers field | UID field |
-|----------|-----------|-----------------|-----------|
-| Binance  | `roi` / `pnl` | `copierCount` | `leadPortfolioId` |
-| OKX      | `yield` | `copyCount` | `uniqueName` |
-| Telegram | — | `members_count` | `chat_id` |
-| Web      | (từ text) | — | URL |
+| Provider | ROI field     | Followers field | UID field         |
+| -------- | ------------- | --------------- | ----------------- |
+| Binance  | `roi` / `pnl` | `copierCount`   | `leadPortfolioId` |
+| OKX      | `yield`       | `copyCount`     | `uniqueName`      |
+| Telegram | —             | `members_count` | `chat_id`         |
+| Web      | (từ text)     | —               | URL               |
 
 ## Checklist
 
@@ -111,7 +111,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | Duplicate entity | Không chạy dedup | Luôn so sánh với existing_entities |
 | Sai metric mapping | Field khác nhau giữa providers | Dùng bảng Provider-specific Mappings |
 | Mất Unicode | Strip quá mạnh | Chỉ strip control chars, giữ Unicode |

@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | url | string | Có | URL cần crawl |
 | crawl_depth | number | Không | Số tầng link con (mặc định: 0 = chỉ trang hiện tại) |
 | capture_screenshot | boolean | Không | Có chụp ảnh màn hình không (mặc định: true) |
@@ -39,8 +39,11 @@ metadata:
     "url": "https://example-scam-trading.com/vip-signal",
     "final_url": "https://example-scam-trading.com/vip-signal?utm=abc",
     "redirect_chain": [
-      {"url": "https://bit.ly/scam123", "status": 301},
-      {"url": "https://example-scam-trading.com/vip-signal?utm=abc", "status": 200}
+      { "url": "https://bit.ly/scam123", "status": 301 },
+      {
+        "url": "https://example-scam-trading.com/vip-signal?utm=abc",
+        "status": 200
+      }
     ],
     "metadata": {
       "title": "VIP Trading Signal - Lợi nhuận 300%",
@@ -56,8 +59,16 @@ metadata:
     },
     "content_markdown": "# VIP Trading Signal\n\n## Cam kết lợi nhuận\n\nChúng tôi cam kết **lợi nhuận 15-30% mỗi tuần**...\n\n## Tham gia ngay\n\n- Gói Bronze: 500 USDT\n- Gói Silver: 2000 USDT\n- Gói Gold: 5000 USDT\n\n> Liên hệ Telegram: @scam_admin",
     "extracted_links": [
-      {"href": "https://t.me/scam_signal_group", "text": "Tham gia nhóm", "context": "CTA button"},
-      {"href": "https://scam-payment.com/deposit", "text": "Nạp tiền ngay", "context": "Payment section"}
+      {
+        "href": "https://t.me/scam_signal_group",
+        "text": "Tham gia nhóm",
+        "context": "CTA button"
+      },
+      {
+        "href": "https://scam-payment.com/deposit",
+        "text": "Nạp tiền ngay",
+        "context": "Payment section"
+      }
     ],
     "screenshots": [
       {
@@ -89,13 +100,13 @@ metadata:
 
 ## Công cụ gợi ý
 
-| Công cụ | Mục đích | Ghi chú |
-|---------|----------|---------|
-| crawl4ai | Crawl thông minh | Tùy chọn, không bắt buộc cài |
-| Puppeteer | Browser automation | Đã có trong crawler bot |
-| Playwright | Thay thế Puppeteer | Nếu cần cross-browser |
-| Turndown | HTML → Markdown | Lightweight |
-| cheerio | Parse HTML | Khi không cần JS render |
+| Công cụ    | Mục đích           | Ghi chú                      |
+| ---------- | ------------------ | ---------------------------- |
+| crawl4ai   | Crawl thông minh   | Tùy chọn, không bắt buộc cài |
+| Puppeteer  | Browser automation | Đã có trong crawler bot      |
+| Playwright | Thay thế Puppeteer | Nếu cần cross-browser        |
+| Turndown   | HTML → Markdown    | Lightweight                  |
+| cheerio    | Parse HTML         | Khi không cần JS render      |
 
 ## Checklist
 
@@ -111,7 +122,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | Timeout | Trang load chậm/block bot | Tăng timeout, dùng proxy |
 | Content rỗng | SPA chưa render JS | Dùng Puppeteer thay cheerio |
 | Redirect loop | Circular redirects | Set max redirects = 10, abort nếu vượt |

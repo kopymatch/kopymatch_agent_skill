@@ -24,13 +24,13 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
-| evidence_pack | object | Có* | Evidence Pack JSON (hoặc) |
-| normalized_entity | object | Có* | Entity đã chuẩn hoá |
+| --- | --- | --- | --- |
+| evidence_pack | object | Có\* | Evidence Pack JSON (hoặc) |
+| normalized_entity | object | Có\* | Entity đã chuẩn hoá |
 | analysis_depth | enum | Không | "quick" (5 phút), "standard" (15 phút), "deep" (30 phút) |
 | focus_areas | string[] | Không | ["roi_claims", "social_proof", "payment", "legal"] |
 
-*Cần ít nhất 1 trong 2
+\*Cần ít nhất 1 trong 2
 
 ## Đầu ra (Output)
 
@@ -101,7 +101,7 @@ metadata:
     ],
     "summary": {
       "total_signals": 4,
-      "by_severity": {"critical": 1, "high": 2, "medium": 1, "low": 0},
+      "by_severity": { "critical": 1, "high": 2, "medium": 1, "low": 0 },
       "by_category": {
         "financial_fraud_indicator": 2,
         "social_engineering": 1,
@@ -116,7 +116,7 @@ metadata:
 ## Phân loại Risk Signal Types
 
 | Type | Severity mặc định | Mô tả |
-|------|-------------------|-------|
+| --- | --- | --- |
 | `unrealistic_return_promise` | critical | Cam kết lợi nhuận phi thực tế (>100%/năm) |
 | `guaranteed_no_risk` | critical | Cam kết "không rủi ro" — vi phạm nguyên tắc tài chính |
 | `pressure_tactics` | high | Tạo khan hiếm giả, ép quyết định nhanh |
@@ -154,7 +154,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | False positive | Từ khoá xuất hiện ngoài context | Kiểm tra context xung quanh, không chỉ match keyword |
 | Thiếu evidence_span | Chỉ ghi type mà không trích dẫn | Luôn copy đoạn text gốc |
 | Severity không phù hợp | Không dùng bảng phân loại | Tham chiếu bảng Signal Types |

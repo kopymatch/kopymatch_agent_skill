@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | task_type | enum | Có | "classifier", "extractor", "reranker" |
 | raw_samples | object[] | Có | Dữ liệu thô cần gán nhãn |
 | existing_labels | object[] | Không | Labels đã có (để mở rộng) |
@@ -51,16 +51,48 @@ metadata:
   },
   "taxonomy": {
     "labels": [
-      {"id": "scam_confirmed", "description": "Có bằng chứng rõ ràng là scam", "min_signals": 2},
-      {"id": "scam_suspected", "description": "Có dấu hiệu đáng ngờ, cần thêm bằng chứng", "min_signals": 1},
-      {"id": "legitimate", "description": "Hợp pháp, không có dấu hiệu scam", "min_signals": 0},
-      {"id": "insufficient_data", "description": "Không đủ dữ liệu để đánh giá", "min_signals": null}
+      {
+        "id": "scam_confirmed",
+        "description": "Có bằng chứng rõ ràng là scam",
+        "min_signals": 2
+      },
+      {
+        "id": "scam_suspected",
+        "description": "Có dấu hiệu đáng ngờ, cần thêm bằng chứng",
+        "min_signals": 1
+      },
+      {
+        "id": "legitimate",
+        "description": "Hợp pháp, không có dấu hiệu scam",
+        "min_signals": 0
+      },
+      {
+        "id": "insufficient_data",
+        "description": "Không đủ dữ liệu để đánh giá",
+        "min_signals": null
+      }
     ],
     "sub_labels": [
-      {"parent": "scam_confirmed", "id": "ponzi", "description": "Mô hình Ponzi"},
-      {"parent": "scam_confirmed", "id": "pump_dump", "description": "Pump & Dump"},
-      {"parent": "scam_confirmed", "id": "fake_signals", "description": "Signal giả lừa nạp tiền"},
-      {"parent": "scam_confirmed", "id": "identity_fraud", "description": "Mạo danh trader/sàn uy tín"}
+      {
+        "parent": "scam_confirmed",
+        "id": "ponzi",
+        "description": "Mô hình Ponzi"
+      },
+      {
+        "parent": "scam_confirmed",
+        "id": "pump_dump",
+        "description": "Pump & Dump"
+      },
+      {
+        "parent": "scam_confirmed",
+        "id": "fake_signals",
+        "description": "Signal giả lừa nạp tiền"
+      },
+      {
+        "parent": "scam_confirmed",
+        "id": "identity_fraud",
+        "description": "Mạo danh trader/sàn uy tín"
+      }
     ]
   },
   "samples": [
@@ -182,7 +214,7 @@ llamafactory-cli train \
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | Model overfit | Dataset quá nhỏ/ít đa dạng | Tối thiểu 500 samples, đa dạng nguồn |
 | Label imbalance | Quá nhiều scam, ít legit | Cân bằng hoặc dùng class weights |
 | Output format lỗi | JSON invalid trong output | Validate JSON trước khi thêm vào dataset |

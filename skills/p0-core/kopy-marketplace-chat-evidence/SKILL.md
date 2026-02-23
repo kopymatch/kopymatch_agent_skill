@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | chat_log | object[] | Có | Mảng tin nhắn, mỗi tin có sender, timestamp, content |
 | platform | enum | Có | "telegram", "zalo", "facebook", "web_chat", "other" |
 | reporter_id | string | Có | ID người báo cáo (nạn nhân) |
@@ -80,7 +80,7 @@ metadata:
         "term_id": "term_001",
         "type": "financial_commitment",
         "description": "Yêu cầu nạp 500 USDT vào ví TRC20",
-        "amount": {"value": 500, "currency": "USDT"},
+        "amount": { "value": 500, "currency": "USDT" },
         "evidence_msgs": ["msg_003"],
         "timestamp": "2025-01-10T09:06:00Z"
       },
@@ -123,10 +123,26 @@ metadata:
       }
     ],
     "conversation_phases": [
-      {"phase": "approach", "msgs": ["msg_001", "msg_002"], "description": "Tiếp cận, tạo thiện cảm"},
-      {"phase": "trust_building", "msgs": ["msg_005", "msg_008"], "description": "Chia sẻ 'thành công', ảnh lợi nhuận"},
-      {"phase": "pressure", "msgs": ["msg_003", "msg_010"], "description": "Ép giá, tạo khan hiếm"},
-      {"phase": "onboarding", "msgs": ["msg_012", "msg_015"], "description": "Chuyển nền tảng, yêu cầu nạp tiền"}
+      {
+        "phase": "approach",
+        "msgs": ["msg_001", "msg_002"],
+        "description": "Tiếp cận, tạo thiện cảm"
+      },
+      {
+        "phase": "trust_building",
+        "msgs": ["msg_005", "msg_008"],
+        "description": "Chia sẻ 'thành công', ảnh lợi nhuận"
+      },
+      {
+        "phase": "pressure",
+        "msgs": ["msg_003", "msg_010"],
+        "description": "Ép giá, tạo khan hiếm"
+      },
+      {
+        "phase": "onboarding",
+        "msgs": ["msg_012", "msg_015"],
+        "description": "Chuyển nền tảng, yêu cầu nạp tiền"
+      }
     ],
     "evidence_objects": [
       {
@@ -146,7 +162,7 @@ metadata:
 ## Phân loại Violation Types
 
 | Type | Mô tả | Pattern |
-|------|-------|---------|
+| --- | --- | --- |
 | `pressure_pricing` | Ép giá bằng khan hiếm/thời hạn giả | `false_urgency`, `limited_slots` |
 | `platform_migration` | Chuyển sang nền tảng ít kiểm soát | `platform_shifting` |
 | `identity_concealment` | Giấu danh tính, không chịu cung cấp thông tin | `anonymity_maintenance` |
@@ -178,7 +194,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | False positive violation | Ngữ cảnh bị hiểu sai | Đọc context ≥3 tin nhắn xung quanh |
 | Thiếu consent | Quên check consent | Luôn kiểm tra consent_confirmed đầu tiên |
 | Sai phase | Phân loại nhầm giai đoạn | So sánh timeline với violation patterns |

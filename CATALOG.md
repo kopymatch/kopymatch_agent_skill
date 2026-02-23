@@ -5,7 +5,7 @@
 ## P0 — Core KopyMatch
 
 | Skill | Nhóm | Khi dùng | Input | Output | Repo target | Nguồn |
-|-------|------|----------|-------|--------|-------------|-------|
+| --- | --- | --- | --- | --- | --- | --- |
 | `kopy-spec-sdd` | Core | Đặc tả kiến trúc / onboard team | module_name, scope | SDD JSON (components, data_model, API) | kopymatch | P0 nội bộ |
 | `kopy-evidence-pack-schema` | Core | Tạo/validate gói bằng chứng số | raw_data, source_type | Evidence Pack JSON (items[], metadata, integrity) | cả hai | P0 nội bộ |
 | `kopy-crawl-url-to-markdown` | Crawl | Crawl URL nghi ngờ → markdown + metadata | url, crawl_depth | crawl_result JSON (markdown, links, screenshots, redirect_chain) | crawler | P0 nội bộ |
@@ -18,7 +18,7 @@
 ## P1 — Dev chung (Việt hoá)
 
 | Skill | Nhóm | Khi dùng | Input | Output | Repo target | Nguồn |
-|-------|------|----------|-------|--------|-------------|-------|
+| --- | --- | --- | --- | --- | --- | --- |
 | `react-best-practices` | React | Viết/review React/Next.js code | Source files | Performance findings | cả hai | Upstream Việt hoá (Vercel) |
 | `composition-patterns` | React | Refactor component architecture | Source files | Refactoring suggestions | cả hai | Upstream Việt hoá (Vercel) |
 | `web-design-audit` | UI/UX | Audit UI theo best practices | URL/files | Findings (file:line format) | cả hai | Upstream Việt hoá (Vercel) |

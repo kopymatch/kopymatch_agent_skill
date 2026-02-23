@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | risk_analyses | object[] | Có | Danh sách risk analysis outputs |
 | evidence_packs | object[] | Có | Evidence packs liên quan |
 | entities | object[] | Không | Normalized entities liên quan |
@@ -156,7 +156,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | Conclusion quá mạnh | Thiếu evidence nhưng kết luận chắc chắn | Hạ confidence, thêm vào what_we_dont_know |
 | Thiếu citation | Fact không trỏ về nguồn | Kiểm tra từng fact có sources[] |
 | Timeline thiếu | Bỏ qua sự kiện quan trọng | Đọc lại tất cả evidence packs |

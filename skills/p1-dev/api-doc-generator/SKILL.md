@@ -70,7 +70,7 @@ components:
         entity_type: { type: string, enum: [trader, exchange, signal_group] }
         provider: { type: string }
         display_name: { type: string }
-        metrics: { $ref: '#/components/schemas/EntityMetrics' }
+        metrics: { $ref: "#/components/schemas/EntityMetrics" }
 ```
 
 ## Checklist

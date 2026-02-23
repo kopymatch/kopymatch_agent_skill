@@ -29,16 +29,16 @@ npm install -D vitest @testing-library/react @testing-library/jest-dom
 
 ```tsx
 // __tests__/utils/normalize.test.ts
-import { normalizeEntity } from '@/utils/normalize';
+import { normalizeEntity } from "@/utils/normalize";
 
-describe('normalizeEntity', () => {
-  it('should lowercase display name', () => {
-    const result = normalizeEntity({ displayName: 'CryptoMaster_VN' });
-    expect(result.normalized_name).toBe('cryptomaster_vn');
+describe("normalizeEntity", () => {
+  it("should lowercase display name", () => {
+    const result = normalizeEntity({ displayName: "CryptoMaster_VN" });
+    expect(result.normalized_name).toBe("cryptomaster_vn");
   });
 
-  it('should handle empty input gracefully', () => {
-    expect(() => normalizeEntity({})).toThrow('displayName is required');
+  it("should handle empty input gracefully", () => {
+    expect(() => normalizeEntity({})).toThrow("displayName is required");
   });
 });
 ```
@@ -47,13 +47,13 @@ describe('normalizeEntity', () => {
 
 ```tsx
 // __tests__/components/RiskBadge.test.tsx
-import { render, screen } from '@testing-library/react';
-import { RiskBadge } from '@/components/RiskBadge';
+import { render, screen } from "@testing-library/react";
+import { RiskBadge } from "@/components/RiskBadge";
 
-describe('RiskBadge', () => {
-  it('renders critical severity in red', () => {
+describe("RiskBadge", () => {
+  it("renders critical severity in red", () => {
     render(<RiskBadge severity="critical" />);
-    expect(screen.getByText('critical')).toHaveClass('text-red-500');
+    expect(screen.getByText("critical")).toHaveClass("text-red-500");
   });
 });
 ```
@@ -62,13 +62,13 @@ describe('RiskBadge', () => {
 
 ```tsx
 // __tests__/api/evidence.test.ts
-import { POST } from '@/app/api/evidence/route';
+import { POST } from "@/app/api/evidence/route";
 
-describe('POST /api/evidence', () => {
-  it('should validate evidence pack schema', async () => {
-    const req = new Request('http://localhost/api/evidence', {
-      method: 'POST',
-      body: JSON.stringify({ invalid: true })
+describe("POST /api/evidence", () => {
+  it("should validate evidence pack schema", async () => {
+    const req = new Request("http://localhost/api/evidence", {
+      method: "POST",
+      body: JSON.stringify({ invalid: true }),
     });
     const res = await POST(req);
     expect(res.status).toBe(400);
@@ -84,11 +84,11 @@ npx playwright install
 
 ```ts
 // e2e/dashboard.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('dashboard hiển thị entity list', async ({ page }) => {
-  await page.goto('/dashboard');
-  await expect(page.getByRole('heading', { name: 'Entities' })).toBeVisible();
+test("dashboard hiển thị entity list", async ({ page }) => {
+  await page.goto("/dashboard");
+  await expect(page.getByRole("heading", { name: "Entities" })).toBeVisible();
 });
 ```
 

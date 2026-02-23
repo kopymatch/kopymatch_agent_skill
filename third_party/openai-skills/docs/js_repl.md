@@ -39,8 +39,7 @@ js_repl_node_path = "/absolute/path/to/node"
 
 ## Module resolution
 
-`js_repl` resolves **bare** specifiers (for example `await import("pkg")`) using an ordered
-search path. Path-style specifiers (`./`, `../`, absolute paths, `file:` URLs) are rejected.
+`js_repl` resolves **bare** specifiers (for example `await import("pkg")`) using an ordered search path. Path-style specifiers (`./`, `../`, absolute paths, `file:` URLs) are rejected.
 
 Module resolution proceeds in the following order:
 
@@ -75,8 +74,7 @@ The kernel embeds a vendored Meriyah bundle at:
 
 - `codex-rs/core/src/tools/js_repl/meriyah.umd.min.js`
 
-Current source is `meriyah@7.0.0` from npm (`dist/meriyah.umd.min.js`).
-Licensing is tracked in:
+Current source is `meriyah@7.0.0` from npm (`dist/meriyah.umd.min.js`). Licensing is tracked in:
 
 - `third_party/meriyah/LICENSE`
 - `NOTICE`

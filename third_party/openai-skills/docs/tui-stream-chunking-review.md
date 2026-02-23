@@ -1,13 +1,10 @@
 # TUI Stream Chunking
 
-This document explains how stream chunking in the TUI works and why it is
-implemented this way.
+This document explains how stream chunking in the TUI works and why it is implemented this way.
 
 ## Problem
 
-Streaming output can arrive faster than a one-line-per-tick animation can show
-it. If commit speed stays fixed while arrival speed spikes, queued lines grow
-and visible output lags behind received output.
+Streaming output can arrive faster than a one-line-per-tick animation can show it. If commit speed stays fixed while arrival speed spikes, queued lines grow and visible output lags behind received output.
 
 ## Design goals
 
@@ -32,8 +29,7 @@ and visible output lags behind received output.
 - `codex-rs/tui/src/streaming/controller.rs`
   - Queue/drain primitives used by commit-tick orchestration.
 - `codex-rs/tui/src/chatwidget.rs`
-  - Integration point that invokes commit-tick orchestration and handles UI
-    lifecycle events.
+  - Integration point that invokes commit-tick orchestration and handles UI lifecycle events.
 
 ## Runtime flow
 
@@ -48,8 +44,7 @@ On each commit tick:
 4. Emit drained `HistoryCell`s for insertion by the caller.
 5. Emit trace logs for observability.
 
-In `CatchUpOnly` scope, policy state still advances, but draining is skipped
-unless mode is currently `CatchUp`.
+In `CatchUpOnly` scope, policy state still advances, but draining is skipped unless mode is currently `CatchUp`.
 
 ## Modes and transitions
 
@@ -57,24 +52,20 @@ Two modes are used:
 
 - `Smooth`
   - Baseline behavior: one line drained per baseline commit tick.
-  - Baseline tick interval currently comes from
-    `tui/src/app.rs:COMMIT_ANIMATION_TICK` (~8.3ms, ~120fps).
+  - Baseline tick interval currently comes from `tui/src/app.rs:COMMIT_ANIMATION_TICK` (~8.3ms, ~120fps).
 - `CatchUp`
   - Drain current queued backlog per tick via `Batch(queued_lines)`.
 
 Entry and exit use hysteresis:
 
 - Enter `CatchUp` when queue depth or queue age exceeds enter thresholds.
-- Exit requires both depth and age to be below exit thresholds for a hold
-  window (`EXIT_HOLD`).
+- Exit requires both depth and age to be below exit thresholds for a hold window (`EXIT_HOLD`).
 
 This prevents oscillation when load hovers near thresholds.
 
 ## Current experimental tuning values
 
-These are the current values in `streaming/chunking.rs` plus the baseline
-commit tick in `tui/src/app.rs`. They are
-experimental and may change as we gather more trace data.
+These are the current values in `streaming/chunking.rs` plus the baseline commit tick in `tui/src/app.rs`. They are experimental and may change as we gather more trace data.
 
 - Baseline commit tick: `~8.3ms` (`COMMIT_ANIMATION_TICK` in `app.rs`)
 - Enter catch-up:
@@ -90,13 +81,11 @@ experimental and may change as we gather more trace data.
 
 In `Smooth`, plan is always `Single`.
 
-In `CatchUp`, plan is `Batch(queued_lines)`, which drains the currently queued
-backlog for immediate convergence.
+In `CatchUp`, plan is `Batch(queued_lines)`, which drains the currently queued backlog for immediate convergence.
 
 ## Why this design
 
-This keeps normal animation semantics intact, while making backlog behavior
-adaptive:
+This keeps normal animation semantics intact, while making backlog behavior adaptive:
 
 - Under normal load, behavior stays familiar and stable.
 - Under pressure, queue age is reduced quickly without sacrificing ordering.
@@ -114,11 +103,8 @@ adaptive:
 Trace events are emitted from commit-tick orchestration:
 
 - `stream chunking commit tick`
-  - `mode`, `queued_lines`, `oldest_queued_age_ms`, `drain_plan`,
-    `has_controller`, `all_idle`
+  - `mode`, `queued_lines`, `oldest_queued_age_ms`, `drain_plan`, `has_controller`, `all_idle`
 - `stream chunking mode transition`
-  - `prior_mode`, `new_mode`, `queued_lines`, `oldest_queued_age_ms`,
-    `entered_catch_up`
+  - `prior_mode`, `new_mode`, `queued_lines`, `oldest_queued_age_ms`, `entered_catch_up`
 
-These events are intended to explain display lag by showing queue pressure,
-selected drain behavior, and mode transitions over time.
+These events are intended to explain display lag by showing queue pressure, selected drain behavior, and mode transitions over time.

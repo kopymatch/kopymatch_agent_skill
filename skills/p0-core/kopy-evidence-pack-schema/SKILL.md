@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | raw_data | object/string | Có | Dữ liệu thô từ nguồn (crawl output, upload, API) |
 | source_type | enum | Có | Loại nguồn: "url", "image", "voice", "text", "chat_log" |
 | source_url | string | Không | URL gốc (nếu có) |
@@ -64,7 +64,7 @@ metadata:
         "hash_sha256": "a1b2c3d4...",
         "description": "Trang chủ hiển thị lợi nhuận 300%/tháng",
         "captured_at": "2025-01-15T10:29:56Z",
-        "dimensions": {"width": 1920, "height": 1080}
+        "dimensions": { "width": 1920, "height": 1080 }
       },
       {
         "item_id": "item_002",
@@ -113,7 +113,7 @@ metadata:
 ### Item Types
 
 | Type | Format hỗ trợ | Mô tả |
-|------|---------------|-------|
+| --- | --- | --- |
 | `screenshot` | image/png, image/jpeg, image/webp | Ảnh chụp màn hình |
 | `text_extract` | text/plain, text/html | Đoạn text trích xuất |
 | `link` | — | URL thu thập được |
@@ -146,7 +146,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | Thiếu hash | Quên tính hash cho file | Luôn tính SHA-256 trước khi tạo pack |
 | Sai type | Gán nhãn sai loại item | So sánh với bảng Item Types ở trên |
 | Thiếu redirect_chain | Chỉ lưu final URL | Bật redirect tracking khi crawl |

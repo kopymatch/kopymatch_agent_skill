@@ -7,7 +7,7 @@
 Repo này chứa **skill packs** cho AI coding agents, chia làm 3 nhóm:
 
 | Nhóm | Thư mục | Mô tả |
-|------|---------|-------|
+| --- | --- | --- |
 | **P0 — Core KopyMatch** | `skills/p0-core/` | 8 skill đặc thù cho KopyMatch (anti-scam, evidence, crawl, risk) |
 | **P1 — Dev chung** | `skills/p1-dev/` | 10 skill dev đã Việt hoá (React, testing, security, workflow) |
 | **Third-party (gốc)** | `third_party/` | Bản gốc upstream — KHÔNG chỉnh sửa, để đối chiếu |
@@ -51,7 +51,7 @@ bash scripts/install-both.sh /đường/dẫn/tới/project
 ### P0 — Core KopyMatch (8 skill)
 
 | Skill | Mô tả | Repo target |
-|-------|-------|-------------|
+| --- | --- | --- |
 | `kopy-spec-sdd` | Đặc tả thiết kế hệ thống (SDD) | kopymatch |
 | `kopy-evidence-pack-schema` | Schema Evidence Pack JSON | cả hai |
 | `kopy-crawl-url-to-markdown` | Crawl URL → Markdown + metadata | crawler |
@@ -64,7 +64,7 @@ bash scripts/install-both.sh /đường/dẫn/tới/project
 ### P1 — Dev chung (10 skill)
 
 | Skill | Mô tả | Nguồn |
-|-------|-------|-------|
+| --- | --- | --- |
 | `react-best-practices` | 57 rules tối ưu React/Next.js | Vercel (Việt hoá) |
 | `composition-patterns` | Composition patterns, tránh boolean props | Vercel (Việt hoá) |
 | `web-design-audit` | Audit UI/UX theo Web Interface Guidelines | Vercel (Việt hoá) |

@@ -3,7 +3,7 @@
 Repo này đã vendor 3 upstream skill packs:
 
 | Nguồn | Thư mục | License |
-|-------|---------|---------|
+| --- | --- | --- |
 | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | `third_party/vercel-agent-skills/` | MIT |
 | [anthropics/courses](https://github.com/anthropics/courses) | `third_party/anthropics-skills/` | CC-BY-SA-4.0 |
 | [openai/codex](https://github.com/openai/codex) | `third_party/openai-skills/` | Apache-2.0 |

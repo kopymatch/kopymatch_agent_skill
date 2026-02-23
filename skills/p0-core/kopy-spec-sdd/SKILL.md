@@ -24,7 +24,7 @@ metadata:
 ## Đầu vào (Input)
 
 | Tên | Kiểu | Bắt buộc | Mô tả |
-|-----|------|----------|-------|
+| --- | --- | --- | --- |
 | module_name | string | Có | Tên module cần đặc tả |
 | scope | string | Có | Phạm vi: "full-system" hoặc tên module cụ thể |
 | existing_docs | string[] | Không | Đường dẫn tới tài liệu hiện có |
@@ -57,9 +57,21 @@ metadata:
           {
             "name": "CrawlJob",
             "fields": [
-              {"name": "id", "type": "string", "description": "UUID duy nhất"},
-              {"name": "url", "type": "string", "description": "URL nguồn cần crawl"},
-              {"name": "status", "type": "enum", "values": ["pending", "running", "done", "failed"]}
+              {
+                "name": "id",
+                "type": "string",
+                "description": "UUID duy nhất"
+              },
+              {
+                "name": "url",
+                "type": "string",
+                "description": "URL nguồn cần crawl"
+              },
+              {
+                "name": "status",
+                "type": "enum",
+                "values": ["pending", "running", "done", "failed"]
+              }
             ]
           }
         ]
@@ -102,7 +114,7 @@ metadata:
 ## Lỗi thường gặp
 
 | Lỗi | Nguyên nhân | Cách khắc phục |
-|-----|-------------|----------------|
+| --- | --- | --- |
 | SDD không khớp code | Viết SDD mà không đọc code | Luôn đọc codebase trước khi viết |
 | Thiếu dependency | Bỏ sót package/service ẩn | Kiểm tra package.json, docker-compose |
 | Data model outdated | Schema đã thay đổi | So sánh với migration files |

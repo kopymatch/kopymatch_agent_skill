@@ -25,16 +25,16 @@ Hướng dẫn tối ưu hiệu suất cho ứng dụng React/Next.js, 57 rules 
 
 ## Nhóm Rules theo Ưu tiên
 
-| Ưu tiên | Nhóm | Mức ảnh hưởng |
-|---------|------|---------------|
-| 1 | Loại bỏ Waterfalls | CỰC CAO |
-| 2 | Tối ưu Bundle Size | CỰC CAO |
-| 3 | Server-Side Performance | CAO |
-| 4 | Client-Side Data Fetching | TRUNG BÌNH - CAO |
-| 5 | Tối ưu Re-render | TRUNG BÌNH |
-| 6 | Rendering Performance | TRUNG BÌNH |
-| 7 | JavaScript Performance | THẤP - TRUNG BÌNH |
-| 8 | Advanced Patterns | THẤP |
+| Ưu tiên | Nhóm                      | Mức ảnh hưởng     |
+| ------- | ------------------------- | ----------------- |
+| 1       | Loại bỏ Waterfalls        | CỰC CAO           |
+| 2       | Tối ưu Bundle Size        | CỰC CAO           |
+| 3       | Server-Side Performance   | CAO               |
+| 4       | Client-Side Data Fetching | TRUNG BÌNH - CAO  |
+| 5       | Tối ưu Re-render          | TRUNG BÌNH        |
+| 6       | Rendering Performance     | TRUNG BÌNH        |
+| 7       | JavaScript Performance    | THẤP - TRUNG BÌNH |
+| 8       | Advanced Patterns         | THẤP              |
 
 ## Quick Reference
 
@@ -70,6 +70,7 @@ Hướng dẫn tối ưu hiệu suất cho ứng dụng React/Next.js, 57 rules 
 ## Cách dùng
 
 Đọc chi tiết rules trong thư mục `rules/` của bản gốc:
+
 ```
 third_party/vercel-agent-skills/react-best-practices/rules/
 ```

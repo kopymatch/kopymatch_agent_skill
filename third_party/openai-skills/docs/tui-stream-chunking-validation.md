@@ -1,7 +1,6 @@
 # TUI Stream Chunking Validation Process
 
-This document records the process used to validate adaptive stream chunking
-and anti-flap behavior.
+This document records the process used to validate adaptive stream chunking and anti-flap behavior.
 
 ## Scope
 
@@ -53,8 +52,7 @@ For each measured window:
 - queue depth (`max`, `p95`, `p99`)
 - oldest queued age (`max`, `p95`, `p99`)
 - rapid re-entry count:
-  - number of `Smooth -> CatchUp` transitions within 1 second of a
-    `CatchUp -> Smooth` transition
+  - number of `Smooth -> CatchUp` transitions within 1 second of a `CatchUp -> Smooth` transition
 
 ## Interpretation
 
@@ -69,29 +67,23 @@ For each measured window:
 
 ## Experiment history
 
-This section captures the major tuning passes so future work can build on
-what has already been tried.
+This section captures the major tuning passes so future work can build on what has already been tried.
 
 - Baseline
   - One-line smooth draining with a 50ms commit tick.
-  - This preserved familiar pacing but could feel laggy under sustained
-    backlog.
+  - This preserved familiar pacing but could feel laggy under sustained backlog.
 - Pass 1: instant catch-up, baseline tick unchanged
-  - Kept smooth-mode semantics but made catch-up drain the full queued
-    backlog each catch-up tick.
-  - Result: queue lag dropped faster, but perceived motion could still feel
-    stepped because smooth-mode cadence remained coarse.
+  - Kept smooth-mode semantics but made catch-up drain the full queued backlog each catch-up tick.
+  - Result: queue lag dropped faster, but perceived motion could still feel stepped because smooth-mode cadence remained coarse.
 - Pass 2: faster baseline tick (25ms)
   - Improved smooth-mode cadence and reduced visible stepping.
   - Result: better, but still not aligned with draw cadence.
 - Pass 3: frame-aligned baseline tick (~16.7ms)
   - Set baseline commit cadence to approximately 60fps.
-  - Result: smoother perceived progression while retaining hysteresis and
-    fast backlog convergence.
+  - Result: smoother perceived progression while retaining hysteresis and fast backlog convergence.
 - Pass 4: higher frame-aligned baseline tick (~8.3ms)
   - Set baseline commit cadence to approximately 120fps.
-  - Result: further reduced smooth-mode stepping while preserving the same
-    adaptive catch-up policy shape.
+  - Result: further reduced smooth-mode stepping while preserving the same adaptive catch-up policy shape.
 
 Current state combines:
 
@@ -101,7 +93,5 @@ Current state combines:
 
 ## Notes
 
-- Validation is source-agnostic and does not rely on naming any specific
-  upstream provider.
-- This process intentionally preserves existing baseline smooth behavior and
-  focuses on burst/backlog handling behavior.
+- Validation is source-agnostic and does not rely on naming any specific upstream provider.
+- This process intentionally preserves existing baseline smooth behavior and focuses on burst/backlog handling behavior.
