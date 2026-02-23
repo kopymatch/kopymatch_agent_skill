@@ -1,0 +1,18 @@
+# Temporary upstream clones
+_tmp_upstream/
+
+# Node
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Env
+.env
+.env.*
