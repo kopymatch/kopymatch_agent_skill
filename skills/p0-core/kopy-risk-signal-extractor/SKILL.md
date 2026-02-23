@@ -23,12 +23,12 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| evidence_pack | object | Có\* | Evidence Pack JSON (hoặc) |
-| normalized_entity | object | Có\* | Entity đã chuẩn hoá |
-| analysis_depth | enum | Không | "quick" (5 phút), "standard" (15 phút), "deep" (30 phút) |
-| focus_areas | string[] | Không | ["roi_claims", "social_proof", "payment", "legal"] |
+| Tên               | Kiểu     | Bắt buộc | Mô tả                                                    |
+| ----------------- | -------- | -------- | -------------------------------------------------------- |
+| evidence_pack     | object   | Có\*     | Evidence Pack JSON (hoặc)                                |
+| normalized_entity | object   | Có\*     | Entity đã chuẩn hoá                                      |
+| analysis_depth    | enum     | Không    | "quick" (5 phút), "standard" (15 phút), "deep" (30 phút) |
+| focus_areas       | string[] | Không    | ["roi_claims", "social_proof", "payment", "legal"]       |
 
 \*Cần ít nhất 1 trong 2
 
@@ -115,19 +115,19 @@ metadata:
 
 ## Phân loại Risk Signal Types
 
-| Type | Severity mặc định | Mô tả |
-| --- | --- | --- |
-| `unrealistic_return_promise` | critical | Cam kết lợi nhuận phi thực tế (>100%/năm) |
-| `guaranteed_no_risk` | critical | Cam kết "không rủi ro" — vi phạm nguyên tắc tài chính |
-| `pressure_tactics` | high | Tạo khan hiếm giả, ép quyết định nhanh |
-| `unregulated_payment` | high | Thanh toán qua kênh không kiểm soát |
-| `fake_testimonials` | high | Đánh giá/chứng nhận giả |
-| `new_domain` | medium | Domain mới (<30 ngày) |
-| `hidden_identity` | medium | Không công khai danh tính người vận hành |
-| `platform_migration` | medium | Chuyển nền tảng liên tục (YT→Telegram→Web) |
-| `copy_paste_content` | low | Nội dung copy từ site khác |
-| `missing_legal` | medium | Thiếu điều khoản, chính sách bảo mật |
-| `suspicious_social_proof` | medium | Followers/likes tăng bất thường |
+| Type                         | Severity mặc định | Mô tả                                                 |
+| ---------------------------- | ----------------- | ----------------------------------------------------- |
+| `unrealistic_return_promise` | critical          | Cam kết lợi nhuận phi thực tế (>100%/năm)             |
+| `guaranteed_no_risk`         | critical          | Cam kết "không rủi ro" — vi phạm nguyên tắc tài chính |
+| `pressure_tactics`           | high              | Tạo khan hiếm giả, ép quyết định nhanh                |
+| `unregulated_payment`        | high              | Thanh toán qua kênh không kiểm soát                   |
+| `fake_testimonials`          | high              | Đánh giá/chứng nhận giả                               |
+| `new_domain`                 | medium            | Domain mới (<30 ngày)                                 |
+| `hidden_identity`            | medium            | Không công khai danh tính người vận hành              |
+| `platform_migration`         | medium            | Chuyển nền tảng liên tục (YT→Telegram→Web)            |
+| `copy_paste_content`         | low               | Nội dung copy từ site khác                            |
+| `missing_legal`              | medium            | Thiếu điều khoản, chính sách bảo mật                  |
+| `suspicious_social_proof`    | medium            | Followers/likes tăng bất thường                       |
 
 ## Quy trình
 
@@ -153,12 +153,12 @@ metadata:
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| False positive | Từ khoá xuất hiện ngoài context | Kiểm tra context xung quanh, không chỉ match keyword |
-| Thiếu evidence_span | Chỉ ghi type mà không trích dẫn | Luôn copy đoạn text gốc |
-| Severity không phù hợp | Không dùng bảng phân loại | Tham chiếu bảng Signal Types |
-| Missing signal | Không quét hết content | Đảm bảo quét toàn bộ items trong Evidence Pack |
+| Lỗi                    | Nguyên nhân                     | Cách khắc phục                                       |
+| ---------------------- | ------------------------------- | ---------------------------------------------------- |
+| False positive         | Từ khoá xuất hiện ngoài context | Kiểm tra context xung quanh, không chỉ match keyword |
+| Thiếu evidence_span    | Chỉ ghi type mà không trích dẫn | Luôn copy đoạn text gốc                              |
+| Severity không phù hợp | Không dùng bảng phân loại       | Tham chiếu bảng Signal Types                         |
+| Missing signal         | Không quét hết content          | Đảm bảo quét toàn bộ items trong Evidence Pack       |
 
 ## An toàn
 
