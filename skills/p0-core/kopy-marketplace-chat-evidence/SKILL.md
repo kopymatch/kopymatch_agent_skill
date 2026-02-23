@@ -23,13 +23,13 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| chat_log | object[] | Có | Mảng tin nhắn, mỗi tin có sender, timestamp, content |
-| platform | enum | Có | "telegram", "zalo", "facebook", "web_chat", "other" |
-| reporter_id | string | Có | ID người báo cáo (nạn nhân) |
-| subject_id | string | Không | ID đối tượng bị báo cáo |
-| consent_confirmed | boolean | Có | Xác nhận đã có đồng ý chia sẻ chat |
+| Tên               | Kiểu     | Bắt buộc | Mô tả                                                |
+| ----------------- | -------- | -------- | ---------------------------------------------------- |
+| chat_log          | object[] | Có       | Mảng tin nhắn, mỗi tin có sender, timestamp, content |
+| platform          | enum     | Có       | "telegram", "zalo", "facebook", "web_chat", "other"  |
+| reporter_id       | string   | Có       | ID người báo cáo (nạn nhân)                          |
+| subject_id        | string   | Không    | ID đối tượng bị báo cáo                              |
+| consent_confirmed | boolean  | Có       | Xác nhận đã có đồng ý chia sẻ chat                   |
 
 ### Chat Log Format
 
@@ -161,15 +161,15 @@ metadata:
 
 ## Phân loại Violation Types
 
-| Type | Mô tả | Pattern |
-| --- | --- | --- |
-| `pressure_pricing` | Ép giá bằng khan hiếm/thời hạn giả | `false_urgency`, `limited_slots` |
-| `platform_migration` | Chuyển sang nền tảng ít kiểm soát | `platform_shifting` |
-| `identity_concealment` | Giấu danh tính, không chịu cung cấp thông tin | `anonymity_maintenance` |
-| `threat` | Đe doạ khi nạn nhân muốn rút tiền | `withdrawal_threat` |
-| `gaslighting` | Đổ lỗi nạn nhân khi thua lỗ | `victim_blaming` |
-| `false_authority` | Giả danh chuyên gia, cơ quan | `impersonation` |
-| `isolation` | Khuyên nạn nhân không nói với ai | `social_isolation` |
+| Type                   | Mô tả                                         | Pattern                          |
+| ---------------------- | --------------------------------------------- | -------------------------------- |
+| `pressure_pricing`     | Ép giá bằng khan hiếm/thời hạn giả            | `false_urgency`, `limited_slots` |
+| `platform_migration`   | Chuyển sang nền tảng ít kiểm soát             | `platform_shifting`              |
+| `identity_concealment` | Giấu danh tính, không chịu cung cấp thông tin | `anonymity_maintenance`          |
+| `threat`               | Đe doạ khi nạn nhân muốn rút tiền             | `withdrawal_threat`              |
+| `gaslighting`          | Đổ lỗi nạn nhân khi thua lỗ                   | `victim_blaming`                 |
+| `false_authority`      | Giả danh chuyên gia, cơ quan                  | `impersonation`                  |
+| `isolation`            | Khuyên nạn nhân không nói với ai              | `social_isolation`               |
 
 ## Quy trình
 
@@ -193,12 +193,12 @@ metadata:
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| False positive violation | Ngữ cảnh bị hiểu sai | Đọc context ≥3 tin nhắn xung quanh |
-| Thiếu consent | Quên check consent | Luôn kiểm tra consent_confirmed đầu tiên |
-| Sai phase | Phân loại nhầm giai đoạn | So sánh timeline với violation patterns |
-| PII leak | Chat chứa CMND/STK | Mask PII trước khi tạo evidence objects |
+| Lỗi                      | Nguyên nhân              | Cách khắc phục                           |
+| ------------------------ | ------------------------ | ---------------------------------------- |
+| False positive violation | Ngữ cảnh bị hiểu sai     | Đọc context ≥3 tin nhắn xung quanh       |
+| Thiếu consent            | Quên check consent       | Luôn kiểm tra consent_confirmed đầu tiên |
+| Sai phase                | Phân loại nhầm giai đoạn | So sánh timeline với violation patterns  |
+| PII leak                 | Chat chứa CMND/STK       | Mask PII trước khi tạo evidence objects  |
 
 ## An toàn
 

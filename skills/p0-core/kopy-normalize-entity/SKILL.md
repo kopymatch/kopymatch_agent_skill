@@ -23,12 +23,12 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| raw_entity | object | Có | Entity thô từ crawl output |
-| source_provider | string | Có | "binance", "okx", "telegram", "web", ... |
-| entity_type | enum | Có | "exchange", "trader", "signal_group", "website", "person" |
-| existing_entities | object[] | Không | Entities đã chuẩn hoá (để dedup) |
+| Tên               | Kiểu     | Bắt buộc | Mô tả                                                     |
+| ----------------- | -------- | -------- | --------------------------------------------------------- |
+| raw_entity        | object   | Có       | Entity thô từ crawl output                                |
+| source_provider   | string   | Có       | "binance", "okx", "telegram", "web", ...                  |
+| entity_type       | enum     | Có       | "exchange", "trader", "signal_group", "website", "person" |
+| existing_entities | object[] | Không    | Entities đã chuẩn hoá (để dedup)                          |
 
 ## Đầu ra (Output)
 
@@ -110,12 +110,12 @@ metadata:
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| Duplicate entity | Không chạy dedup | Luôn so sánh với existing_entities |
+| Lỗi                | Nguyên nhân                    | Cách khắc phục                       |
+| ------------------ | ------------------------------ | ------------------------------------ |
+| Duplicate entity   | Không chạy dedup               | Luôn so sánh với existing_entities   |
 | Sai metric mapping | Field khác nhau giữa providers | Dùng bảng Provider-specific Mappings |
-| Mất Unicode | Strip quá mạnh | Chỉ strip control chars, giữ Unicode |
-| Entity ID trùng | Hash collision | Thêm timestamp vào hash input |
+| Mất Unicode        | Strip quá mạnh                 | Chỉ strip control chars, giữ Unicode |
+| Entity ID trùng    | Hash collision                 | Thêm timestamp vào hash input        |
 
 ## An toàn
 

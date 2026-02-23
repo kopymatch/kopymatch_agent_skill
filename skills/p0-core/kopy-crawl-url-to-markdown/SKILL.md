@@ -23,13 +23,13 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| url | string | Có | URL cần crawl |
-| crawl_depth | number | Không | Số tầng link con (mặc định: 0 = chỉ trang hiện tại) |
-| capture_screenshot | boolean | Không | Có chụp ảnh màn hình không (mặc định: true) |
-| timeout_ms | number | Không | Timeout (mặc định: 30000ms) |
-| user_agent | string | Không | Custom user agent |
+| Tên                | Kiểu    | Bắt buộc | Mô tả                                               |
+| ------------------ | ------- | -------- | --------------------------------------------------- |
+| url                | string  | Có       | URL cần crawl                                       |
+| crawl_depth        | number  | Không    | Số tầng link con (mặc định: 0 = chỉ trang hiện tại) |
+| capture_screenshot | boolean | Không    | Có chụp ảnh màn hình không (mặc định: true)         |
+| timeout_ms         | number  | Không    | Timeout (mặc định: 30000ms)                         |
+| user_agent         | string  | Không    | Custom user agent                                   |
 
 ## Đầu ra (Output)
 
@@ -121,13 +121,13 @@ metadata:
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| Timeout | Trang load chậm/block bot | Tăng timeout, dùng proxy |
-| Content rỗng | SPA chưa render JS | Dùng Puppeteer thay cheerio |
-| Redirect loop | Circular redirects | Set max redirects = 10, abort nếu vượt |
-| Encoding lỗi | Charset không đúng | Detect charset từ headers, fallback UTF-8 |
-| Bị block | Anti-bot protection | Rotate user agent, dùng residential proxy |
+| Lỗi           | Nguyên nhân               | Cách khắc phục                            |
+| ------------- | ------------------------- | ----------------------------------------- |
+| Timeout       | Trang load chậm/block bot | Tăng timeout, dùng proxy                  |
+| Content rỗng  | SPA chưa render JS        | Dùng Puppeteer thay cheerio               |
+| Redirect loop | Circular redirects        | Set max redirects = 10, abort nếu vượt    |
+| Encoding lỗi  | Charset không đúng        | Detect charset từ headers, fallback UTF-8 |
+| Bị block      | Anti-bot protection       | Rotate user agent, dùng residential proxy |
 
 ## An toàn
 

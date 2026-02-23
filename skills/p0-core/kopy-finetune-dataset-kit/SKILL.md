@@ -23,12 +23,12 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| task_type | enum | Có | "classifier", "extractor", "reranker" |
-| raw_samples | object[] | Có | Dữ liệu thô cần gán nhãn |
-| existing_labels | object[] | Không | Labels đã có (để mở rộng) |
-| target_model | string | Không | "llama3-8b", "qwen2-7b", "mistral-7b" (mặc định: llama3-8b) |
+| Tên             | Kiểu     | Bắt buộc | Mô tả                                                       |
+| --------------- | -------- | -------- | ----------------------------------------------------------- |
+| task_type       | enum     | Có       | "classifier", "extractor", "reranker"                       |
+| raw_samples     | object[] | Có       | Dữ liệu thô cần gán nhãn                                    |
+| existing_labels | object[] | Không    | Labels đã có (để mở rộng)                                   |
+| target_model    | string   | Không    | "llama3-8b", "qwen2-7b", "mistral-7b" (mặc định: llama3-8b) |
 
 ## Đầu ra (Output)
 
@@ -213,12 +213,12 @@ llamafactory-cli train \
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| Model overfit | Dataset quá nhỏ/ít đa dạng | Tối thiểu 500 samples, đa dạng nguồn |
-| Label imbalance | Quá nhiều scam, ít legit | Cân bằng hoặc dùng class weights |
-| Output format lỗi | JSON invalid trong output | Validate JSON trước khi thêm vào dataset |
-| Instruction inconsistent | Mỗi sample instruction khác nhau | Dùng template cố định |
+| Lỗi                      | Nguyên nhân                      | Cách khắc phục                           |
+| ------------------------ | -------------------------------- | ---------------------------------------- |
+| Model overfit            | Dataset quá nhỏ/ít đa dạng       | Tối thiểu 500 samples, đa dạng nguồn     |
+| Label imbalance          | Quá nhiều scam, ít legit         | Cân bằng hoặc dùng class weights         |
+| Output format lỗi        | JSON invalid trong output        | Validate JSON trước khi thêm vào dataset |
+| Instruction inconsistent | Mỗi sample instruction khác nhau | Dùng template cố định                    |
 
 ## An toàn
 

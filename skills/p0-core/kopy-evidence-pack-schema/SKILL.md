@@ -23,12 +23,12 @@ metadata:
 
 ## Đầu vào (Input)
 
-| Tên | Kiểu | Bắt buộc | Mô tả |
-| --- | --- | --- | --- |
-| raw_data | object/string | Có | Dữ liệu thô từ nguồn (crawl output, upload, API) |
-| source_type | enum | Có | Loại nguồn: "url", "image", "voice", "text", "chat_log" |
-| source_url | string | Không | URL gốc (nếu có) |
-| collector_id | string | Không | ID người/bot thu thập |
+| Tên          | Kiểu          | Bắt buộc | Mô tả                                                   |
+| ------------ | ------------- | -------- | ------------------------------------------------------- |
+| raw_data     | object/string | Có       | Dữ liệu thô từ nguồn (crawl output, upload, API)        |
+| source_type  | enum          | Có       | Loại nguồn: "url", "image", "voice", "text", "chat_log" |
+| source_url   | string        | Không    | URL gốc (nếu có)                                        |
+| collector_id | string        | Không    | ID người/bot thu thập                                   |
 
 ## Đầu ra (Output)
 
@@ -112,16 +112,16 @@ metadata:
 
 ### Item Types
 
-| Type | Format hỗ trợ | Mô tả |
-| --- | --- | --- |
-| `screenshot` | image/png, image/jpeg, image/webp | Ảnh chụp màn hình |
-| `text_extract` | text/plain, text/html | Đoạn text trích xuất |
-| `link` | — | URL thu thập được |
-| `voice_recording` | audio/mp3, audio/wav, audio/ogg | Ghi âm cuộc gọi/voice |
-| `document` | application/pdf, text/plain | Tài liệu đính kèm |
-| `chat_message` | text/plain | Tin nhắn chat đơn lẻ |
-| `chat_log` | application/json | Lịch sử chat (nhiều tin nhắn) |
-| `video` | video/mp4, video/webm | Video bằng chứng |
+| Type              | Format hỗ trợ                     | Mô tả                         |
+| ----------------- | --------------------------------- | ----------------------------- |
+| `screenshot`      | image/png, image/jpeg, image/webp | Ảnh chụp màn hình             |
+| `text_extract`    | text/plain, text/html             | Đoạn text trích xuất          |
+| `link`            | —                                 | URL thu thập được             |
+| `voice_recording` | audio/mp3, audio/wav, audio/ogg   | Ghi âm cuộc gọi/voice         |
+| `document`        | application/pdf, text/plain       | Tài liệu đính kèm             |
+| `chat_message`    | text/plain                        | Tin nhắn chat đơn lẻ          |
+| `chat_log`        | application/json                  | Lịch sử chat (nhiều tin nhắn) |
+| `video`           | video/mp4, video/webm             | Video bằng chứng              |
 
 ## Quy trình
 
@@ -145,13 +145,13 @@ metadata:
 
 ## Lỗi thường gặp
 
-| Lỗi | Nguyên nhân | Cách khắc phục |
-| --- | --- | --- |
-| Thiếu hash | Quên tính hash cho file | Luôn tính SHA-256 trước khi tạo pack |
-| Sai type | Gán nhãn sai loại item | So sánh với bảng Item Types ở trên |
-| Thiếu redirect_chain | Chỉ lưu final URL | Bật redirect tracking khi crawl |
-| JSON invalid | Trailing comma, thiếu quote | Validate bằng JSON.parse() trước khi lưu |
-| Duplicate item_id | Copy-paste item | Dùng UUID hoặc auto-increment |
+| Lỗi                  | Nguyên nhân                 | Cách khắc phục                           |
+| -------------------- | --------------------------- | ---------------------------------------- |
+| Thiếu hash           | Quên tính hash cho file     | Luôn tính SHA-256 trước khi tạo pack     |
+| Sai type             | Gán nhãn sai loại item      | So sánh với bảng Item Types ở trên       |
+| Thiếu redirect_chain | Chỉ lưu final URL           | Bật redirect tracking khi crawl          |
+| JSON invalid         | Trailing comma, thiếu quote | Validate bằng JSON.parse() trước khi lưu |
+| Duplicate item_id    | Copy-paste item             | Dùng UUID hoặc auto-increment            |
 
 ## An toàn
 

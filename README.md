@@ -6,11 +6,11 @@
 
 Repo này chứa **skill packs** cho AI coding agents, chia làm 3 nhóm:
 
-| Nhóm | Thư mục | Mô tả |
-| --- | --- | --- |
+| Nhóm                    | Thư mục           | Mô tả                                                            |
+| ----------------------- | ----------------- | ---------------------------------------------------------------- |
 | **P0 — Core KopyMatch** | `skills/p0-core/` | 8 skill đặc thù cho KopyMatch (anti-scam, evidence, crawl, risk) |
-| **P1 — Dev chung** | `skills/p1-dev/` | 10 skill dev đã Việt hoá (React, testing, security, workflow) |
-| **Third-party (gốc)** | `third_party/` | Bản gốc upstream — KHÔNG chỉnh sửa, để đối chiếu |
+| **P1 — Dev chung**      | `skills/p1-dev/`  | 10 skill dev đã Việt hoá (React, testing, security, workflow)    |
+| **Third-party (gốc)**   | `third_party/`    | Bản gốc upstream — KHÔNG chỉnh sửa, để đối chiếu                 |
 
 ## 🚀 Cách dùng
 
@@ -50,31 +50,31 @@ bash scripts/install-both.sh /đường/dẫn/tới/project
 
 ### P0 — Core KopyMatch (8 skill)
 
-| Skill | Mô tả | Repo target |
-| --- | --- | --- |
-| `kopy-spec-sdd` | Đặc tả thiết kế hệ thống (SDD) | kopymatch |
-| `kopy-evidence-pack-schema` | Schema Evidence Pack JSON | cả hai |
-| `kopy-crawl-url-to-markdown` | Crawl URL → Markdown + metadata | crawler |
-| `kopy-normalize-entity` | Chuẩn hoá entity (trader, sàn, nhóm) | cả hai |
-| `kopy-risk-signal-extractor` | Trích xuất tín hiệu rủi ro | kopymatch |
-| `kopy-trace-report` | Báo cáo truy vết tổng hợp | kopymatch |
-| `kopy-marketplace-chat-evidence` | Bằng chứng chat marketplace | kopymatch |
-| `kopy-finetune-dataset-kit` | Dataset kit cho fine-tune LlamaFactory | cả hai |
+| Skill                            | Mô tả                                  | Repo target |
+| -------------------------------- | -------------------------------------- | ----------- |
+| `kopy-spec-sdd`                  | Đặc tả thiết kế hệ thống (SDD)         | kopymatch   |
+| `kopy-evidence-pack-schema`      | Schema Evidence Pack JSON              | cả hai      |
+| `kopy-crawl-url-to-markdown`     | Crawl URL → Markdown + metadata        | crawler     |
+| `kopy-normalize-entity`          | Chuẩn hoá entity (trader, sàn, nhóm)   | cả hai      |
+| `kopy-risk-signal-extractor`     | Trích xuất tín hiệu rủi ro             | kopymatch   |
+| `kopy-trace-report`              | Báo cáo truy vết tổng hợp              | kopymatch   |
+| `kopy-marketplace-chat-evidence` | Bằng chứng chat marketplace            | kopymatch   |
+| `kopy-finetune-dataset-kit`      | Dataset kit cho fine-tune LlamaFactory | cả hai      |
 
 ### P1 — Dev chung (10 skill)
 
-| Skill | Mô tả | Nguồn |
-| --- | --- | --- |
-| `react-best-practices` | 57 rules tối ưu React/Next.js | Vercel (Việt hoá) |
+| Skill                  | Mô tả                                     | Nguồn             |
+| ---------------------- | ----------------------------------------- | ----------------- |
+| `react-best-practices` | 57 rules tối ưu React/Next.js             | Vercel (Việt hoá) |
 | `composition-patterns` | Composition patterns, tránh boolean props | Vercel (Việt hoá) |
-| `web-design-audit` | Audit UI/UX theo Web Interface Guidelines | Vercel (Việt hoá) |
-| `nextjs-testing` | Testing guide: unit, integration, E2E | Nội bộ |
-| `security-basics` | Checklist bảo mật web app | Nội bộ |
-| `repo-hygiene` | Dọn dẹp repo: lint, format, commit, CI | Nội bộ |
-| `api-doc-generator` | Tạo API doc (OpenAPI/Swagger) | Nội bộ |
-| `deploy-preview` | Deploy preview trước production | Nội bộ |
-| `git-workflow` | Git branching, PR, conflict resolution | Nội bộ |
-| `code-review` | Code review checklist | Nội bộ |
+| `web-design-audit`     | Audit UI/UX theo Web Interface Guidelines | Vercel (Việt hoá) |
+| `nextjs-testing`       | Testing guide: unit, integration, E2E     | Nội bộ            |
+| `security-basics`      | Checklist bảo mật web app                 | Nội bộ            |
+| `repo-hygiene`         | Dọn dẹp repo: lint, format, commit, CI    | Nội bộ            |
+| `api-doc-generator`    | Tạo API doc (OpenAPI/Swagger)             | Nội bộ            |
+| `deploy-preview`       | Deploy preview trước production           | Nội bộ            |
+| `git-workflow`         | Git branching, PR, conflict resolution    | Nội bộ            |
+| `code-review`          | Code review checklist                     | Nội bộ            |
 
 ## ✅ Validate
 
