@@ -1,0 +1,40 @@
+{
+  "crawl_result": {
+    "url": "https://example-scam-trading.com/vip-signal",
+    "final_url": "https://example-scam-trading.com/vip-signal?utm=abc",
+    "redirect_chain": [
+      { "url": "https://bit.ly/scam123", "status": 301 },
+      { "url": "https://example-scam-trading.com/vip-signal?utm=abc", "status": 200 }
+    ],
+    "metadata": {
+      "title": "VIP Trading Signal - Lợi nhuận 300%",
+      "description": "Tham gia nhóm VIP trading signal...",
+      "og_image": "https://example-scam-trading.com/og-banner.jpg",
+      "og_type": "website",
+      "language": "vi",
+      "charset": "utf-8",
+      "server": "cloudflare",
+      "ssl_valid": true,
+      "domain_age_days": 15,
+      "whois_registrar": "namecheap"
+    },
+    "content_markdown": "# VIP Trading Signal\n\n## Cam kết lợi nhuận\n\nChúng tôi cam kết **lợi nhuận 15-30% mỗi tuần**...\n\n## Tham gia ngay\n\n- Gói Bronze: 500 USDT\n- Gói Silver: 2000 USDT\n- Gói Gold: 5000 USDT\n\n> Liên hệ Telegram: @scam_admin",
+    "extracted_links": [
+      {
+        "href": "https://t.me/scam_signal_group",
+        "text": "Tham gia nhóm",
+        "context": "CTA button"
+      }
+    ],
+    "screenshots": [
+      {
+        "type": "full_page",
+        "storage_ref": "local://output/screenshots/example-scam-trading_full.png",
+        "hash_sha256": "abc123def456..."
+      }
+    ],
+    "crawled_at": "2025-01-15T10:30:00Z",
+    "crawl_duration_ms": 4500,
+    "evidence_pack_ref": "ep_20250115_abc123"
+  }
+}

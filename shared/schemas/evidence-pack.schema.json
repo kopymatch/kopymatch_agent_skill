@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kopymatch.com/schemas/evidence-pack.schema.json",
+  "title": "KopyMatch Evidence Pack",
+  "description": "Schema chuẩn hoá cho Evidence Pack — gói bằng chứng số gồm ảnh chụp, link, file ghi âm, đoạn text trích xuất, metadata.",
+  "type": "object",
+  "required": ["evidence_pack"],
+  "properties": {
+    "evidence_pack": {
+      "type": "object",
+      "required": ["id", "version", "created_at", "collector", "source", "items", "metadata", "integrity"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^ep_\\d{8}_[a-z0-9]+$",
+          "description": "Unique ID theo format ep_{YYYYMMDD}_{hash}"
+        },
+        "version": {
+          "type": "string",
+          "description": "Schema version"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "collector": {
+          "type": "object",
+          "required": ["type", "id"],
+          "properties": {
+            "type": { "type": "string", "enum": ["bot", "human", "api"] },
+            "id": { "type": "string" },
+            "session_id": { "type": "string" }
+          }
+        },
+        "source": {
+          "type": "object",
+          "required": ["type", "captured_at"],
+          "properties": {
+            "type": { "type": "string", "enum": ["url", "image", "voice", "text", "chat_log"] },
+            "original_url": { "type": "string", "format": "uri" },
+            "final_url": { "type": "string", "format": "uri" },
+            "redirect_chain": {
+              "type": "array",
+              "items": { "type": "string", "format": "uri" }
+            },
+            "captured_at": { "type": "string", "format": "date-time" }
+          }
+        },
+        "items": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/EvidenceItem" }
+        },
+        "metadata": {
+          "type": "object",
+          "required": ["tags"],
+          "properties": {
+            "tags": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+            "entity_refs": { "type": "array", "items": { "type": "string" } },
+            "risk_level_preliminary": { "type": "string", "enum": ["low", "medium", "high", "critical"] },
+            "notes": { "type": "string" }
+          }
+        },
+        "integrity": {
+          "type": "object",
+          "required": ["total_items", "hash_manifest"],
+          "properties": {
+            "total_items": { "type": "integer", "minimum": 1 },
+            "hash_manifest": { "type": "string" },
+            "signed_by": { "type": ["string", "null"] }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "EvidenceItem": {
+      "type": "object",
+      "required": ["item_id", "type", "captured_at"],
+      "properties": {
+        "item_id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["screenshot", "text_extract", "link", "voice_recording", "document", "chat_message", "chat_log", "video"]
+        },
+        "format": { "type": "string" },
+        "content": { "type": "string" },
+        "storage_ref": { "type": "string" },
+        "hash_sha256": { "type": "string" },
+        "description": { "type": "string" },
+        "captured_at": { "type": "string", "format": "date-time" },
+        "url": { "type": "string", "format": "uri" },
+        "anchor_text": { "type": "string" },
+        "context": { "type": "string" },
+        "language": { "type": "string" },
+        "source_selector": { "type": "string" },
+        "duration_seconds": { "type": "number" },
+        "transcript": { "type": "string" },
+        "dimensions": {
+          "type": "object",
+          "properties": {
+            "width": { "type": "integer" },
+            "height": { "type": "integer" }
+          }
+        }
+      }
+    }
+  }
+}

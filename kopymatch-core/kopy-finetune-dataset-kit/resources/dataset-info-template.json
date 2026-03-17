@@ -1,0 +1,26 @@
+{
+  "kopymatch_classifier": {
+    "file_name": "kopymatch_classifier_train.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "kopymatch_extractor": {
+    "file_name": "kopymatch_extractor_train.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  },
+  "kopymatch_reranker": {
+    "file_name": "kopymatch_reranker_train.json",
+    "columns": {
+      "prompt": "instruction",
+      "query": "input",
+      "response": "output"
+    }
+  }
+}

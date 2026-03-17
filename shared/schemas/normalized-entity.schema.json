@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kopymatch.com/schemas/normalized-entity.schema.json",
+  "title": "KopyMatch Normalized Entity",
+  "description": "Schema chuẩn hoá entity (sàn giao dịch, trader, nhóm tín hiệu) từ nhiều nguồn dữ liệu thô.",
+  "type": "object",
+  "required": ["normalized_entity"],
+  "properties": {
+    "normalized_entity": {
+      "type": "object",
+      "required": ["entity_id", "entity_type", "provider", "display_name", "normalized_name", "identifiers", "attributes", "sources", "normalized_at"],
+      "properties": {
+        "entity_id": {
+          "type": "string",
+          "pattern": "^ent_[a-z_]+_[a-z0-9]+$",
+          "description": "Format: ent_{type}_{provider}_{hash}"
+        },
+        "entity_type": {
+          "type": "string",
+          "enum": ["exchange", "trader", "signal_group", "website", "person"]
+        },
+        "provider": {
+          "type": "string",
+          "description": "Nguồn: binance, okx, telegram, web, ..."
+        },
+        "display_name": { "type": "string" },
+        "normalized_name": {
+          "type": "string",
+          "description": "Lowercase, stripped special chars"
+        },
+        "identifiers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "value"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["platform_uid", "telegram", "website", "email", "phone", "twitter", "facebook"]
+              },
+              "value": { "type": "string" }
+            }
+          }
+        },
+        "attributes": {
+          "type": "object",
+          "properties": {
+            "followers_count": { "type": ["integer", "null"] },
+            "roi_30d": { "type": ["number", "null"] },
+            "roi_90d": { "type": ["number", "null"] },
+            "max_drawdown": { "type": ["number", "null"] },
+            "win_rate": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "total_trades": { "type": ["integer", "null"] },
+            "active_since": { "type": ["string", "null"], "format": "date" },
+            "verified": { "type": ["boolean", "null"] },
+            "description": { "type": ["string", "null"] }
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "consistency_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "risk_score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+            "data_completeness": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["crawl_id", "fetched_at"],
+            "properties": {
+              "crawl_id": { "type": "string" },
+              "url": { "type": "string", "format": "uri" },
+              "fetched_at": { "type": "string", "format": "date-time" }
+            }
+          }
+        },
+        "dedup": {
+          "type": "object",
+          "properties": {
+            "is_duplicate": { "type": "boolean" },
+            "potential_matches": { "type": "array", "items": { "type": "string" } },
+            "match_confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 }
+          }
+        },
+        "normalized_at": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

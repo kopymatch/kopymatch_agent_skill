@@ -1,0 +1,97 @@
+{
+  "title": "KopyMatch Risk Signal Types",
+  "description": "Phân loại các loại tín hiệu rủi ro (risk signals) dùng để phát hiện scam tài chính.",
+  "version": "1.0.0",
+  "signal_types": [
+    {
+      "type": "unrealistic_return_promise",
+      "default_severity": "critical",
+      "description": "Cam kết lợi nhuận phi thực tế (>100%/năm)",
+      "category": "financial_fraud_indicator",
+      "keywords_vi": ["cam kết lợi nhuận", "% mỗi tuần", "% mỗi tháng", "gấp đôi", "gấp ba", "lợi nhuận ổn định", "không thua lỗ"]
+    },
+    {
+      "type": "guaranteed_no_risk",
+      "default_severity": "critical",
+      "description": "Cam kết 'không rủi ro' — vi phạm nguyên tắc tài chính",
+      "category": "financial_fraud_indicator",
+      "keywords_vi": ["không rủi ro", "an toàn tuyệt đối", "bảo đảm vốn", "zero risk", "chắc chắn có lãi"]
+    },
+    {
+      "type": "pressure_tactics",
+      "default_severity": "high",
+      "description": "Tạo khan hiếm giả, ép quyết định nhanh",
+      "category": "social_engineering",
+      "keywords_vi": ["chỉ còn", "slot cuối", "hôm nay là ngày cuối", "cơ hội cuối", "ưu đãi đặc biệt", "sắp hết"]
+    },
+    {
+      "type": "unregulated_payment",
+      "default_severity": "high",
+      "description": "Thanh toán qua kênh không kiểm soát (ví crypto cá nhân, chuyển khoản trực tiếp)",
+      "category": "financial_fraud_indicator",
+      "keywords_vi": ["nạp vào ví", "chuyển USDT", "TRC20", "địa chỉ ví", "chuyển khoản trực tiếp"]
+    },
+    {
+      "type": "fake_testimonials",
+      "default_severity": "high",
+      "description": "Đánh giá/chứng nhận giả",
+      "category": "social_engineering",
+      "keywords_vi": ["review giả", "testimonial", "chứng nhận giả"]
+    },
+    {
+      "type": "new_domain",
+      "default_severity": "medium",
+      "description": "Domain mới đăng ký (<30 ngày)",
+      "category": "infrastructure_indicator",
+      "keywords_vi": []
+    },
+    {
+      "type": "hidden_identity",
+      "default_severity": "medium",
+      "description": "Không công khai danh tính người vận hành",
+      "category": "infrastructure_indicator",
+      "keywords_vi": ["ẩn danh", "không tiết lộ", "chỉ liên hệ qua"]
+    },
+    {
+      "type": "platform_migration",
+      "default_severity": "medium",
+      "description": "Chuyển nền tảng liên tục (YT→Telegram→Web)",
+      "category": "social_engineering",
+      "keywords_vi": ["chat riêng", "chuyển sang", "liên hệ qua", "không tiện nói ở đây"]
+    },
+    {
+      "type": "copy_paste_content",
+      "default_severity": "low",
+      "description": "Nội dung copy từ site khác",
+      "category": "infrastructure_indicator",
+      "keywords_vi": []
+    },
+    {
+      "type": "missing_legal",
+      "default_severity": "medium",
+      "description": "Thiếu điều khoản sử dụng, chính sách bảo mật",
+      "category": "legal_compliance",
+      "keywords_vi": []
+    },
+    {
+      "type": "suspicious_social_proof",
+      "default_severity": "medium",
+      "description": "Followers/likes tăng bất thường",
+      "category": "reputation_indicator",
+      "keywords_vi": ["tăng đột biến", "followers giả"]
+    }
+  ],
+  "severity_weights": {
+    "critical": 1.0,
+    "high": 0.7,
+    "medium": 0.4,
+    "low": 0.1
+  },
+  "categories": [
+    "financial_fraud_indicator",
+    "social_engineering",
+    "infrastructure_indicator",
+    "legal_compliance",
+    "reputation_indicator"
+  ]
+}

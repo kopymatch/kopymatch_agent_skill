@@ -1,0 +1,74 @@
+{
+  "title": "KopyMatch Chat Violation Patterns",
+  "description": "Phân loại các loại vi phạm trong lịch sử chat marketplace.",
+  "version": "1.0.0",
+  "violation_types": [
+    {
+      "type": "pressure_pricing",
+      "description": "Ép giá bằng khan hiếm/thời hạn giả",
+      "patterns": ["false_urgency", "limited_slots"],
+      "keywords_vi": ["hôm nay ngày cuối", "ưu đãi", "chỉ còn", "giảm giá", "slot cuối cùng"],
+      "severity": "high"
+    },
+    {
+      "type": "platform_migration",
+      "description": "Chuyển sang nền tảng ít kiểm soát",
+      "patterns": ["platform_shifting"],
+      "keywords_vi": ["chat riêng", "chuyển sang Telegram", "không tiện nói ở đây", "liên hệ qua"],
+      "severity": "high"
+    },
+    {
+      "type": "identity_concealment",
+      "description": "Giấu danh tính, không chịu cung cấp thông tin",
+      "patterns": ["anonymity_maintenance"],
+      "keywords_vi": ["chỉ liên hệ qua", "không tiết lộ", "bí mật", "không cần biết"],
+      "severity": "medium"
+    },
+    {
+      "type": "threat",
+      "description": "Đe doạ khi nạn nhân muốn rút tiền",
+      "patterns": ["withdrawal_threat"],
+      "keywords_vi": ["không được rút", "mất hết", "vi phạm hợp đồng", "phạt"],
+      "severity": "critical"
+    },
+    {
+      "type": "gaslighting",
+      "description": "Đổ lỗi nạn nhân khi thua lỗ",
+      "patterns": ["victim_blaming"],
+      "keywords_vi": ["do bạn", "tại bạn", "bạn không làm đúng", "lỗi của bạn"],
+      "severity": "high"
+    },
+    {
+      "type": "false_authority",
+      "description": "Giả danh chuyên gia, cơ quan",
+      "patterns": ["impersonation"],
+      "keywords_vi": ["chuyên gia", "cố vấn", "được cấp phép", "chứng chỉ quốc tế"],
+      "severity": "high"
+    },
+    {
+      "type": "isolation",
+      "description": "Khuyên nạn nhân không nói với ai",
+      "patterns": ["social_isolation"],
+      "keywords_vi": ["đừng nói với ai", "bí mật", "không chia sẻ", "người khác không hiểu"],
+      "severity": "high"
+    }
+  ],
+  "conversation_phases": [
+    {
+      "phase": "approach",
+      "description": "Tiếp cận, tạo thiện cảm"
+    },
+    {
+      "phase": "trust_building",
+      "description": "Chia sẻ 'thành công', ảnh lợi nhuận"
+    },
+    {
+      "phase": "pressure",
+      "description": "Ép giá, tạo khan hiếm"
+    },
+    {
+      "phase": "onboarding",
+      "description": "Chuyển nền tảng, yêu cầu nạp tiền"
+    }
+  ]
+}

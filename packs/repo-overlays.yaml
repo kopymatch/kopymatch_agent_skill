@@ -1,0 +1,54 @@
+name: repo-overlays
+version: "2.0.0"
+description: "11 skill dev đã Việt hoá — React, testing, security, workflow"
+target_agents:
+  - antigravity
+  - codex
+
+skills:
+  - name: react-best-practices
+    path: repo-overlays/react-best-practices
+    description: "57 rules tối ưu React/Next.js"
+    source: vercel
+
+  - name: composition-patterns
+    path: repo-overlays/composition-patterns
+    description: "Composition patterns, tránh boolean props"
+    source: vercel
+
+  - name: web-design-audit
+    path: repo-overlays/web-design-audit
+    description: "Audit UI/UX theo Web Interface Guidelines"
+    source: vercel
+
+  - name: nextjs-testing
+    path: repo-overlays/nextjs-testing
+    description: "Testing guide: unit, integration, E2E"
+
+  - name: security-basics
+    path: repo-overlays/security-basics
+    description: "Checklist bảo mật web app"
+
+  - name: repo-hygiene
+    path: repo-overlays/repo-hygiene
+    description: "Dọn dẹp repo: lint, format, commit, CI"
+
+  - name: api-doc-generator
+    path: repo-overlays/api-doc-generator
+    description: "Tạo API doc (OpenAPI/Swagger)"
+
+  - name: deploy-preview
+    path: repo-overlays/deploy-preview
+    description: "Deploy preview trước production"
+
+  - name: git-workflow
+    path: repo-overlays/git-workflow
+    description: "Git branching, PR, conflict resolution"
+
+  - name: code-review
+    path: repo-overlays/code-review
+    description: "Code review checklist"
+
+  - name: markdown-formatting
+    path: repo-overlays/markdown-formatting
+    description: "Chuẩn hoá & căn chỉnh file .md"

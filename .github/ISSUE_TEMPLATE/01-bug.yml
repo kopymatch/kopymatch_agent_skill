@@ -1,0 +1,105 @@
+name: 🐛 Báo lỗi (Bug Report)
+description: Báo cáo lỗi liên quan đến skill, script, hoặc resource trong repo.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã báo lỗi! Vui lòng điền đầy đủ thông tin bên dưới để chúng tôi có thể xử lý nhanh nhất.
+
+  - type: input
+    id: summary
+    attributes:
+      label: Tóm tắt lỗi
+      description: Mô tả ngắn gọn lỗi gặp phải.
+      placeholder: "VD: Skill kopy-normalize-entity output thiếu trường metrics"
+    validations:
+      required: true
+
+  - type: input
+    id: related_skill
+    attributes:
+      label: Skill / module / file liên quan
+      description: Tên skill, script, hoặc đường dẫn file bị ảnh hưởng.
+      placeholder: "VD: kopymatch-core/kopy-normalize-entity/SKILL.md"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Môi trường chạy
+      description: Agent hoặc môi trường bạn đang sử dụng.
+      options:
+        - Antigravity
+        - Codex
+        - Claude Code
+        - Local (chạy script trực tiếp)
+        - Khác (ghi rõ ở phần bước tái hiện)
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Cách tái hiện
+      description: Các bước cụ thể để tái hiện lỗi.
+      placeholder: |
+        1. Chạy lệnh `bash scripts/install.sh ...`
+        2. Mở file SKILL.md
+        3. Agent thực hiện skill
+        4. Xem output
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Hành vi mong đợi
+      description: Kết quả mong muốn khi thực hiện đúng.
+      placeholder: "Output JSON có đủ trường entity_id, metrics, sources"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Hành vi thực tế
+      description: Kết quả thực tế gặp phải (sai lệch so với mong đợi).
+      placeholder: "Output thiếu trường metrics, agent bỏ qua resources/"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Log / output / screenshot / prompt đầu vào
+      description: Dán log lỗi, ảnh chụp màn hình, hoặc prompt agent nhận được. Có thể để trống nếu không có.
+      placeholder: |
+        ```
+        Error: ...
+        ```
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Mức độ ảnh hưởng
+      options:
+        - "Nghiêm trọng — Skill không hoạt động, chặn workflow"
+        - "Cao — Output sai nhưng skill vẫn chạy"
+        - "Trung bình — Lỗi nhỏ, có workaround"
+        - "Thấp — Cosmetic / typo / formatting"
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tiêu chí hoàn thành (Acceptance Criteria)
+      description: Khi nào bug này được coi là đã sửa xong?
+      placeholder: |
+        - Output JSON có đủ trường `metrics` khi provider là Binance
+        - `bash scripts/doctor.sh` pass
+    validations:
+      required: true

@@ -1,0 +1,53 @@
+{
+  "name": "kopymatch-agent-skill",
+  "version": "2.0.0",
+  "description": "Bộ skill chuẩn cho AI agent (Antigravity + Codex) — phục vụ hệ thống anti-scam tài chính KopyMatch.",
+  "author": "KopyMatch Team",
+  "license": "See LICENSE",
+  "updated_at": "2026-03-17",
+  "skill_groups": {
+    "kopymatch-core": {
+      "description": "8 skill đặc thù cho hệ thống anti-scam tài chính KopyMatch",
+      "skills": [
+        "kopy-spec-sdd",
+        "kopy-evidence-pack-schema",
+        "kopy-crawl-url-to-markdown",
+        "kopy-normalize-entity",
+        "kopy-risk-signal-extractor",
+        "kopy-trace-report",
+        "kopy-marketplace-chat-evidence",
+        "kopy-finetune-dataset-kit"
+      ]
+    },
+    "repo-overlays": {
+      "description": "11 skill dev đã Việt hoá (React, testing, security, workflow)",
+      "skills": [
+        "react-best-practices",
+        "composition-patterns",
+        "web-design-audit",
+        "nextjs-testing",
+        "security-basics",
+        "repo-hygiene",
+        "api-doc-generator",
+        "deploy-preview",
+        "git-workflow",
+        "code-review",
+        "markdown-formatting"
+      ]
+    }
+  },
+  "shared_resources": {
+    "schemas": [
+      "shared/schemas/evidence-pack.schema.json",
+      "shared/schemas/normalized-entity.schema.json",
+      "shared/schemas/risk-signal.schema.json",
+      "shared/schemas/trace-report.schema.json"
+    ],
+    "taxonomies": [
+      "shared/taxonomies/risk-signal-types.json",
+      "shared/taxonomies/violation-patterns.json",
+      "shared/taxonomies/entity-types.json",
+      "shared/taxonomies/provider-mappings.json"
+    ]
+  }
+}

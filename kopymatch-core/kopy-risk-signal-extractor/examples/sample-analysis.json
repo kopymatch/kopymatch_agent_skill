@@ -1,0 +1,62 @@
+{
+  "risk_analysis": {
+    "entity_ref": "ent_trader_binance_abc123",
+    "analyzed_at": "2025-01-15T10:35:00Z",
+    "overall_risk_level": "high",
+    "overall_risk_score": 0.85,
+    "risk_signals": [
+      {
+        "signal_id": "sig_001",
+        "type": "unrealistic_return_promise",
+        "severity": "critical",
+        "confidence": 0.95,
+        "evidence_span": "Cam kết lợi nhuận 15-30% mỗi tuần, không rủi ro",
+        "source_ref": {
+          "evidence_pack_id": "ep_20250115_abc123",
+          "item_id": "item_002",
+          "location": "content line 15"
+        },
+        "explanation": "Lợi nhuận 15-30%/tuần = 780-1560%/năm, vượt xa mọi benchmark hợp pháp",
+        "category": "financial_fraud_indicator"
+      },
+      {
+        "signal_id": "sig_002",
+        "type": "pressure_tactics",
+        "severity": "high",
+        "confidence": 0.88,
+        "evidence_span": "Chỉ còn 5 slot VIP, đăng ký ngay hôm nay",
+        "source_ref": {
+          "evidence_pack_id": "ep_20250115_abc123",
+          "item_id": "item_002",
+          "location": "content line 28"
+        },
+        "explanation": "Kỹ thuật tạo khan hiếm giả (false scarcity) để ép nạn nhân quyết định nhanh",
+        "category": "social_engineering"
+      },
+      {
+        "signal_id": "sig_003",
+        "type": "new_domain",
+        "severity": "medium",
+        "confidence": 0.99,
+        "evidence_span": "domain_age_days: 15",
+        "source_ref": {
+          "evidence_pack_id": "ep_20250115_abc123",
+          "item_id": null,
+          "location": "metadata.domain_age_days"
+        },
+        "explanation": "Domain mới đăng ký 15 ngày — scam sites thường dùng domain mới để tránh bị report",
+        "category": "infrastructure_indicator"
+      }
+    ],
+    "summary": {
+      "total_signals": 3,
+      "by_severity": { "critical": 1, "high": 1, "medium": 1, "low": 0 },
+      "by_category": {
+        "financial_fraud_indicator": 1,
+        "social_engineering": 1,
+        "infrastructure_indicator": 1
+      },
+      "top_risk": "Cam kết lợi nhuận phi thực tế kết hợp kỹ thuật ép quyết định"
+    }
+  }
+}

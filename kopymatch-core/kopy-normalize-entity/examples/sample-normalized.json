@@ -1,0 +1,43 @@
+{
+  "normalized_entity": {
+    "entity_id": "ent_trader_binance_abc123",
+    "entity_type": "trader",
+    "provider": "binance",
+    "display_name": "CryptoMaster_VN",
+    "normalized_name": "cryptomaster_vn",
+    "identifiers": [
+      { "type": "platform_uid", "value": "BNC-12345678" },
+      { "type": "telegram", "value": "@cryptomaster_vn" },
+      { "type": "website", "value": "https://cryptomaster-vn.com" }
+    ],
+    "attributes": {
+      "followers_count": 15000,
+      "roi_30d": 45.2,
+      "roi_90d": 120.5,
+      "max_drawdown": -22.3,
+      "win_rate": 0.68,
+      "total_trades": 342,
+      "active_since": "2024-03-15",
+      "verified": false,
+      "description": "Copy trading expert - Cam kết lợi nhuận ổn định"
+    },
+    "metrics": {
+      "consistency_score": 0.45,
+      "risk_score": 0.78,
+      "data_completeness": 0.85
+    },
+    "sources": [
+      {
+        "crawl_id": "crawl_20250115_001",
+        "url": "https://binance.com/copy-trading/lead/abc123",
+        "fetched_at": "2025-01-15T10:30:00Z"
+      }
+    ],
+    "dedup": {
+      "is_duplicate": false,
+      "potential_matches": ["ent_trader_okx_xyz789"],
+      "match_confidence": 0.72
+    },
+    "normalized_at": "2025-01-15T10:30:05Z"
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "trace_report": {
+    "report_id": "rpt_20250115_abc123",
+    "report_type": "detailed",
+    "generated_at": "2025-01-15T11:00:00Z",
+    "language": "vi",
+    "subject": {
+      "entity_ref": "ent_trader_binance_abc123",
+      "display_name": "CryptoMaster_VN",
+      "entity_type": "trader"
+    },
+    "sections": {
+      "what_we_know": [
+        {
+          "fact_id": "fact_001",
+          "statement": "Website example-scam-trading.com đăng ký ngày 01/01/2025 qua Namecheap",
+          "confidence": "high",
+          "sources": ["ep_20250115_abc123.metadata.domain_age_days"]
+        },
+        {
+          "fact_id": "fact_002",
+          "statement": "Website cam kết lợi nhuận 15-30% mỗi tuần (= 780-1560%/năm)",
+          "confidence": "high",
+          "sources": ["ep_20250115_abc123.item_002"]
+        }
+      ],
+      "what_we_dont_know": [
+        {
+          "question": "Danh tính thật của người vận hành CryptoMaster_VN?",
+          "attempts": "Không tìm thấy thông tin đăng ký kinh doanh hoặc CMND công khai",
+          "impact": "Không thể xác minh tư cách pháp lý"
+        }
+      ]
+    },
+    "citations": [
+      {
+        "citation_id": "cite_001",
+        "type": "evidence_pack",
+        "ref": "ep_20250115_abc123",
+        "description": "Evidence Pack thu thập từ website example-scam-trading.com lúc 10:30 ngày 15/01/2025"
+      }
+    ],
+    "timeline_events": [
+      {
+        "event_id": "evt_001",
+        "date": "2025-01-01",
+        "description": "Domain example-scam-trading.com được đăng ký",
+        "source": "cite_001",
+        "confidence": "high"
+      },
+      {
+        "event_id": "evt_002",
+        "date": "2025-01-15",
+        "description": "KopyMatch phát hiện và thu thập bằng chứng",
+        "source": "cite_001",
+        "confidence": "high"
+      }
+    ],
+    "conclusion": {
+      "risk_verdict": "high_risk",
+      "summary": "Entity CryptoMaster_VN có nhiều dấu hiệu đặc trưng của scam tài chính: cam kết lợi nhuận phi thực tế, domain mới, thanh toán crypto không kiểm soát.",
+      "recommended_actions": [
+        "Cảnh báo người dùng về entity này",
+        "Theo dõi thêm hoạt động của domain và Telegram group"
+      ],
+      "confidence_level": "medium-high",
+      "disclaimer": "Báo cáo này dựa trên dữ liệu công khai thu thập được và phân tích tự động. Không thay thế tư vấn pháp lý chuyên nghiệp."
+    }
+  }
+}
