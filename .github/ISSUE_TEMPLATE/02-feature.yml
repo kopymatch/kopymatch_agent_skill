@@ -1,0 +1,77 @@
+name: 💡 Đề xuất tính năng (Feature Request)
+description: Đề xuất thay đổi hoặc bổ sung cho skills, scripts, hoặc cấu trúc repo.
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn bạn đã đóng góp ý tưởng! Hãy mô tả rõ ràng để maintainer hoặc agent có thể hiểu và triển khai.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Vấn đề hiện tại
+      description: Mô tả vấn đề hoặc hạn chế mà tính năng mới sẽ giải quyết.
+      placeholder: "VD: Skill kopy-normalize-entity chưa hỗ trợ provider Bybit. Khi crawl data từ Bybit, agent không có mapping để chuẩn hoá."
+    validations:
+      required: true
+
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Use case
+      description: Ai sẽ dùng và trong tình huống nào?
+      placeholder: |
+        - Người dùng crawl dữ liệu từ Bybit Copy Trading
+        - Agent cần normalize entity theo cùng schema như Binance/OKX
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Đề xuất thay đổi
+      description: Mô tả cụ thể thay đổi bạn mong muốn.
+      placeholder: |
+        - Thêm Bybit vào `shared/taxonomies/provider-mappings.json`
+        - Cập nhật bảng Provider-specific Mappings trong SKILL.md
+        - Thêm sample output cho Bybit trong `examples/`
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Ảnh hưởng
+      description: Thay đổi này ảnh hưởng đến những gì? (skill interface, prompt, docs, install, schema, ...)
+      placeholder: |
+        - Cập nhật `provider-mappings.json` (thêm key mới, không breaking)
+        - Cập nhật SKILL.md bảng "Provider-specific Mappings"
+        - Không ảnh hưởng install script
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / Out-of-scope
+      description: Phạm vi của đề xuất này là gì? Những gì KHÔNG nằm trong phạm vi?
+      placeholder: |
+        **Scope**:
+        - Thêm field mapping cho Bybit
+        - Thêm 1 sample output
+
+        **Out-of-scope**:
+        - Viết adapter code cho Bybit API
+        - Thay đổi schema chung
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Tiêu chí hoàn thành
+      description: Khi nào tính năng này được coi là "xong"?
+      placeholder: |
+        - `provider-mappings.json` có entry cho Bybit
+        - SKILL.md cập nhật bảng mapping
+        - `bash scripts/doctor.sh` pass
+    validations:
+      required: true

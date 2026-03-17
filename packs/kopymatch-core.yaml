@@ -1,0 +1,52 @@
+name: kopymatch-core
+version: "2.0.0"
+description: "8 skill đặc thù cho hệ thống anti-scam tài chính KopyMatch"
+target_agents:
+  - antigravity
+  - codex
+
+skills:
+  - name: kopy-spec-sdd
+    path: kopymatch-core/kopy-spec-sdd
+    required: false
+    description: "Đặc tả thiết kế hệ thống (SDD)"
+
+  - name: kopy-evidence-pack-schema
+    path: kopymatch-core/kopy-evidence-pack-schema
+    required: true
+    description: "Schema Evidence Pack JSON"
+
+  - name: kopy-crawl-url-to-markdown
+    path: kopymatch-core/kopy-crawl-url-to-markdown
+    required: true
+    description: "Crawl URL → Markdown + metadata"
+
+  - name: kopy-normalize-entity
+    path: kopymatch-core/kopy-normalize-entity
+    required: true
+    description: "Chuẩn hoá entity (trader, sàn, nhóm)"
+
+  - name: kopy-risk-signal-extractor
+    path: kopymatch-core/kopy-risk-signal-extractor
+    required: true
+    depends_on:
+      - kopy-evidence-pack-schema
+    description: "Trích xuất tín hiệu rủi ro"
+
+  - name: kopy-trace-report
+    path: kopymatch-core/kopy-trace-report
+    required: true
+    depends_on:
+      - kopy-risk-signal-extractor
+      - kopy-evidence-pack-schema
+    description: "Báo cáo truy vết tổng hợp"
+
+  - name: kopy-marketplace-chat-evidence
+    path: kopymatch-core/kopy-marketplace-chat-evidence
+    required: false
+    description: "Bằng chứng chat marketplace"
+
+  - name: kopy-finetune-dataset-kit
+    path: kopymatch-core/kopy-finetune-dataset-kit
+    required: false
+    description: "Dataset kit cho fine-tune LlamaFactory"

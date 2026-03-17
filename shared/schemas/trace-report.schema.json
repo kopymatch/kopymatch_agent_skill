@@ -1,0 +1,107 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kopymatch.com/schemas/trace-report.schema.json",
+  "title": "KopyMatch Trace Report",
+  "description": "Schema cho báo cáo truy vết tổng hợp từ risk signals, evidence packs, và entity data.",
+  "type": "object",
+  "required": ["trace_report"],
+  "properties": {
+    "trace_report": {
+      "type": "object",
+      "required": ["report_id", "report_type", "generated_at", "language", "subject", "sections", "citations", "conclusion"],
+      "properties": {
+        "report_id": {
+          "type": "string",
+          "pattern": "^rpt_\\d{8}_[a-z0-9]+$"
+        },
+        "report_type": {
+          "type": "string",
+          "enum": ["summary", "detailed", "legal"]
+        },
+        "generated_at": { "type": "string", "format": "date-time" },
+        "language": { "type": "string", "default": "vi" },
+        "subject": {
+          "type": "object",
+          "required": ["entity_ref", "display_name", "entity_type"],
+          "properties": {
+            "entity_ref": { "type": "string" },
+            "display_name": { "type": "string" },
+            "entity_type": { "type": "string" }
+          }
+        },
+        "sections": {
+          "type": "object",
+          "required": ["what_we_know", "what_we_dont_know"],
+          "properties": {
+            "what_we_know": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["fact_id", "statement", "confidence", "sources"],
+                "properties": {
+                  "fact_id": { "type": "string" },
+                  "statement": { "type": "string" },
+                  "confidence": { "type": "string", "enum": ["low", "medium", "high"] },
+                  "sources": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+                }
+              }
+            },
+            "what_we_dont_know": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": ["question", "attempts", "impact"],
+                "properties": {
+                  "question": { "type": "string" },
+                  "attempts": { "type": "string" },
+                  "impact": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["citation_id", "type", "ref", "description"],
+            "properties": {
+              "citation_id": { "type": "string" },
+              "type": { "type": "string", "enum": ["evidence_pack", "risk_analysis", "external", "entity"] },
+              "ref": { "type": "string" },
+              "description": { "type": "string" }
+            }
+          }
+        },
+        "timeline_events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["event_id", "date", "description", "source", "confidence"],
+            "properties": {
+              "event_id": { "type": "string" },
+              "date": { "type": "string", "format": "date" },
+              "description": { "type": "string" },
+              "source": { "type": "string" },
+              "confidence": { "type": "string", "enum": ["low", "medium", "high"] }
+            }
+          }
+        },
+        "conclusion": {
+          "type": "object",
+          "required": ["risk_verdict", "summary", "recommended_actions", "confidence_level", "disclaimer"],
+          "properties": {
+            "risk_verdict": {
+              "type": "string",
+              "enum": ["low_risk", "medium_risk", "high_risk", "critical_risk", "insufficient_data"]
+            },
+            "summary": { "type": "string" },
+            "recommended_actions": { "type": "array", "items": { "type": "string" } },
+            "confidence_level": { "type": "string" },
+            "disclaimer": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

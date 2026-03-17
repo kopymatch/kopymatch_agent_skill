@@ -1,0 +1,58 @@
+[
+  {
+    "msg_id": "msg_001",
+    "sender": "subject",
+    "sender_name": "Admin VIP Trading",
+    "timestamp": "2025-01-10T09:00:00Z",
+    "content": "Chào bạn, bạn đã sẵn sàng tham gia nhóm VIP chưa?",
+    "type": "text"
+  },
+  {
+    "msg_id": "msg_002",
+    "sender": "reporter",
+    "sender_name": "Nạn nhân A",
+    "timestamp": "2025-01-10T09:05:00Z",
+    "content": "Tôi muốn tìm hiểu thêm trước",
+    "type": "text"
+  },
+  {
+    "msg_id": "msg_003",
+    "sender": "subject",
+    "sender_name": "Admin VIP Trading",
+    "timestamp": "2025-01-10T09:06:00Z",
+    "content": "Hôm nay là ngày cuối ưu đãi, chỉ 500 USDT thay vì 2000 USDT. Nạp ngay ví này: TRC20:TXyz123abc",
+    "type": "text",
+    "attachments": []
+  },
+  {
+    "msg_id": "msg_004",
+    "sender": "subject",
+    "sender_name": "Admin VIP Trading",
+    "timestamp": "2025-01-10T09:10:00Z",
+    "content": "Nhìn đây, anh A vừa earn được 2000$ trong 1 tuần. Bạn cũng muốn vậy không?",
+    "type": "text",
+    "attachments": [
+      {
+        "type": "image",
+        "url": "screenshot_fake_profit.png",
+        "description": "Ảnh chụp lợi nhuận (có thể giả)"
+      }
+    ]
+  },
+  {
+    "msg_id": "msg_005",
+    "sender": "reporter",
+    "sender_name": "Nạn nhân A",
+    "timestamp": "2025-01-10T09:15:00Z",
+    "content": "Có đảm bảo không?",
+    "type": "text"
+  },
+  {
+    "msg_id": "msg_006",
+    "sender": "subject",
+    "sender_name": "Admin VIP Trading",
+    "timestamp": "2025-01-10T09:16:00Z",
+    "content": "100% cam kết gấp đôi trong 2 tuần. Không lãi hoàn tiền. Chat riêng qua Telegram nhé, Facebook không tiện.",
+    "type": "text"
+  }
+]

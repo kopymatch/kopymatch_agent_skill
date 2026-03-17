@@ -1,0 +1,65 @@
+{
+  "chat_analysis": {
+    "analysis_id": "chat_20250115_sample",
+    "platform": "telegram",
+    "total_messages": 6,
+    "time_range": {
+      "first_message": "2025-01-10T09:00:00Z",
+      "last_message": "2025-01-10T09:16:00Z"
+    },
+    "extracted_terms": [
+      {
+        "term_id": "term_001",
+        "type": "financial_commitment",
+        "description": "Yêu cầu nạp 500 USDT vào ví TRC20",
+        "amount": { "value": 500, "currency": "USDT" },
+        "evidence_msgs": ["msg_003"],
+        "timestamp": "2025-01-10T09:06:00Z"
+      },
+      {
+        "term_id": "term_002",
+        "type": "return_promise",
+        "description": "Cam kết gấp đôi trong 2 tuần",
+        "claimed_return": "200% trong 14 ngày",
+        "evidence_msgs": ["msg_006"],
+        "timestamp": "2025-01-10T09:16:00Z"
+      }
+    ],
+    "violations": [
+      {
+        "violation_id": "vio_001",
+        "type": "pressure_pricing",
+        "severity": "high",
+        "description": "Ép giá bằng cách tạo khan hiếm giả: 'hôm nay ngày cuối ưu đãi'",
+        "evidence_msgs": ["msg_003"],
+        "pattern": "false_urgency",
+        "explanation": "Kỹ thuật ép giá cổ điển: giảm giá có thời hạn giả"
+      },
+      {
+        "violation_id": "vio_002",
+        "type": "platform_migration",
+        "severity": "high",
+        "description": "Yêu cầu chuyển sang Telegram: 'Chat riêng qua Telegram nhé, Facebook không tiện'",
+        "evidence_msgs": ["msg_006"],
+        "pattern": "platform_shifting",
+        "explanation": "Chuyển sang nền tảng ít kiểm soát hơn để tránh bị report/trace"
+      }
+    ],
+    "conversation_phases": [
+      { "phase": "approach", "msgs": ["msg_001", "msg_002"], "description": "Tiếp cận, tạo thiện cảm" },
+      { "phase": "trust_building", "msgs": ["msg_004"], "description": "Chia sẻ 'thành công', ảnh lợi nhuận" },
+      { "phase": "pressure", "msgs": ["msg_003", "msg_005", "msg_006"], "description": "Ép giá, cam kết phi thực tế" }
+    ],
+    "evidence_objects": [
+      {
+        "item_id": "chat_ev_001",
+        "type": "chat_log",
+        "format": "application/json",
+        "content_summary": "6 tin nhắn giữa nạn nhân và Admin VIP Trading qua Telegram",
+        "key_messages": ["msg_003", "msg_006"],
+        "violations_count": 2,
+        "captured_at": "2025-01-15T11:00:00Z"
+      }
+    ]
+  }
+}

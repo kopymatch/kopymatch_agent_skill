@@ -1,0 +1,17 @@
+[
+  {
+    "instruction": "Phân loại entity sau đây là scam hay hợp pháp. Trả lời với {label, confidence, reasoning}.",
+    "input": "Entity: CryptoMaster_VN trên Binance Copy Trading. ROI claim: 300%/tháng. Domain: 15 ngày tuổi. Thanh toán: chuyển USDT trực tiếp vào ví cá nhân. Followers: 15000 (tăng đột biến trong 1 tuần).",
+    "output": "{\"label\": \"scam_confirmed\", \"sub_label\": \"fake_signals\", \"confidence\": 0.92, \"reasoning\": \"ROI 300%/tháng phi thực tế, domain mới, thanh toán không qua sàn, followers tăng bất thường\"}"
+  },
+  {
+    "instruction": "Phân loại entity sau đây là scam hay hợp pháp. Trả lời với {label, confidence, reasoning}.",
+    "input": "Entity: ProTrader_Asia trên OKX. ROI 90 ngày: 35%. Hoạt động 2 năm. Thanh toán qua OKX chính thức. Followers: 8000 (tăng dần đều). Có giấy phép đăng ký kinh doanh.",
+    "output": "{\"label\": \"legitimate\", \"sub_label\": null, \"confidence\": 0.85, \"reasoning\": \"ROI hợp lý, hoạt động lâu, thanh toán qua sàn chính thống, followers organic, có giấy phép\"}"
+  },
+  {
+    "instruction": "Trích xuất tất cả tín hiệu rủi ro từ đoạn text sau. Output JSON array risk_signals[].",
+    "input": "Chào mừng bạn đến với VIP Trading Group! Chúng tôi cam kết lợi nhuận 20% mỗi tuần, hoàn toàn không rủi ro. Chỉ còn 3 slot cuối cùng hôm nay. Nạp 1000 USDT vào ví: TXyz... để bắt đầu ngay.",
+    "output": "[{\"type\": \"unrealistic_return_promise\", \"severity\": \"critical\", \"evidence_span\": \"cam kết lợi nhuận 20% mỗi tuần\"}, {\"type\": \"guaranteed_no_risk\", \"severity\": \"critical\", \"evidence_span\": \"hoàn toàn không rủi ro\"}, {\"type\": \"pressure_tactics\", \"severity\": \"high\", \"evidence_span\": \"Chỉ còn 3 slot cuối cùng hôm nay\"}, {\"type\": \"unregulated_payment\", \"severity\": \"high\", \"evidence_span\": \"Nạp 1000 USDT vào ví: TXyz...\"}]"
+  }
+]

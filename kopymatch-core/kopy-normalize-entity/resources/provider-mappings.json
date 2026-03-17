@@ -1,0 +1,65 @@
+{
+  "title": "KopyMatch Provider Mappings",
+  "description": "Mapping các trường dữ liệu theo từng provider/sàn giao dịch để chuẩn hoá entity.",
+  "version": "1.0.0",
+  "providers": {
+    "binance": {
+      "display_name": "Binance",
+      "field_mappings": {
+        "roi": ["roi", "pnl"],
+        "followers": "copierCount",
+        "uid": "leadPortfolioId",
+        "win_rate": "winRate",
+        "total_trades": "totalTrades",
+        "description": "introduction"
+      },
+      "base_url": "https://www.binance.com/copy-trading/lead/",
+      "api_type": "rest"
+    },
+    "okx": {
+      "display_name": "OKX",
+      "field_mappings": {
+        "roi": "yield",
+        "followers": "copyCount",
+        "uid": "uniqueName",
+        "win_rate": "winRatio",
+        "total_trades": "tradeCount",
+        "description": "bio"
+      },
+      "base_url": "https://www.okx.com/copy-trading/account/",
+      "api_type": "rest"
+    },
+    "telegram": {
+      "display_name": "Telegram",
+      "field_mappings": {
+        "roi": null,
+        "followers": "members_count",
+        "uid": "chat_id",
+        "win_rate": null,
+        "total_trades": null,
+        "description": "description"
+      },
+      "base_url": "https://t.me/",
+      "api_type": "bot_api"
+    },
+    "web": {
+      "display_name": "Website",
+      "field_mappings": {
+        "roi": null,
+        "followers": null,
+        "uid": null,
+        "win_rate": null,
+        "total_trades": null,
+        "description": null
+      },
+      "base_url": null,
+      "api_type": "scraping"
+    }
+  },
+  "id_format": "ent_{entity_type}_{provider}_{hash}",
+  "normalization_rules": {
+    "name": "lowercase → strip special chars → trim whitespace",
+    "metrics": "convert to float, null if unavailable",
+    "date": "ISO 8601 format"
+  }
+}

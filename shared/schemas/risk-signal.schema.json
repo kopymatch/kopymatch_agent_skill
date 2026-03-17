@@ -1,0 +1,106 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://kopymatch.com/schemas/risk-signal.schema.json",
+  "title": "KopyMatch Risk Analysis",
+  "description": "Schema cho kết quả phân tích rủi ro — trích xuất risk signals từ Evidence Pack hoặc normalized entity.",
+  "type": "object",
+  "required": ["risk_analysis"],
+  "properties": {
+    "risk_analysis": {
+      "type": "object",
+      "required": ["entity_ref", "analyzed_at", "overall_risk_level", "overall_risk_score", "risk_signals", "summary"],
+      "properties": {
+        "entity_ref": { "type": "string" },
+        "analyzed_at": { "type": "string", "format": "date-time" },
+        "overall_risk_level": {
+          "type": "string",
+          "enum": ["low", "medium", "high", "critical"]
+        },
+        "overall_risk_score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "risk_signals": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/RiskSignal" }
+        },
+        "summary": {
+          "type": "object",
+          "required": ["total_signals", "by_severity", "by_category", "top_risk"],
+          "properties": {
+            "total_signals": { "type": "integer" },
+            "by_severity": {
+              "type": "object",
+              "properties": {
+                "critical": { "type": "integer" },
+                "high": { "type": "integer" },
+                "medium": { "type": "integer" },
+                "low": { "type": "integer" }
+              }
+            },
+            "by_category": {
+              "type": "object",
+              "additionalProperties": { "type": "integer" }
+            },
+            "top_risk": { "type": "string" }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RiskSignal": {
+      "type": "object",
+      "required": ["signal_id", "type", "severity", "confidence", "evidence_span", "source_ref", "category"],
+      "properties": {
+        "signal_id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "unrealistic_return_promise",
+            "guaranteed_no_risk",
+            "pressure_tactics",
+            "unregulated_payment",
+            "fake_testimonials",
+            "new_domain",
+            "hidden_identity",
+            "platform_migration",
+            "copy_paste_content",
+            "missing_legal",
+            "suspicious_social_proof"
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "evidence_span": { "type": "string" },
+        "source_ref": {
+          "type": "object",
+          "properties": {
+            "evidence_pack_id": { "type": "string" },
+            "item_id": { "type": ["string", "null"] },
+            "location": { "type": "string" }
+          }
+        },
+        "explanation": { "type": "string" },
+        "category": {
+          "type": "string",
+          "enum": [
+            "financial_fraud_indicator",
+            "social_engineering",
+            "infrastructure_indicator",
+            "legal_compliance",
+            "reputation_indicator"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "title": "KopyMatch Entity Types",
+  "description": "Enum các loại entity trong hệ thống KopyMatch.",
+  "version": "1.0.0",
+  "entity_types": [
+    {
+      "id": "exchange",
+      "description": "Sàn giao dịch (Binance, OKX, ...)"
+    },
+    {
+      "id": "trader",
+      "description": "Trader/Lead trader trên sàn copy trading"
+    },
+    {
+      "id": "signal_group",
+      "description": "Nhóm tín hiệu (Telegram group, channel, ...)"
+    },
+    {
+      "id": "website",
+      "description": "Website quảng bá dịch vụ tài chính"
+    },
+    {
+      "id": "person",
+      "description": "Cá nhân liên quan (admin, người vận hành)"
+    }
+  ]
+}

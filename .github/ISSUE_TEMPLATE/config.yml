@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Đọc tài liệu trước
+    url: https://github.com/kopymatch/kopymatch_agent_skill/tree/main/docs
+    about: "Xem docs/ để hiểu cấu trúc repo, cách contribute, và quy trình issue."
